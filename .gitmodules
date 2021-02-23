@@ -1,0 +1,3 @@
+[submodule "Androidbaselib"]
+	path = Androidbaselib
+	url = https://github.com/duxl/Androidbaselib.git
