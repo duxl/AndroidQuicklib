@@ -23,6 +23,6 @@ public class TestInputActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         ((TextView) v.findViewById(R.id.tv_top)).setText(msg);
-        WindowSoftInputCompat.assistActivity(this);
+        WindowSoftInputCompat.assist(this);
     }
 }
