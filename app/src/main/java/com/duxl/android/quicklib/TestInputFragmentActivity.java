@@ -22,7 +22,6 @@ public class TestInputFragmentActivity extends TestInputActivity {
     @Override
     protected void initView(View v) {
         setTitle("内嵌Fragment");
-        WindowSoftInputCompat.assist(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.fl_container, new MyFragment(super.msg));
@@ -44,6 +43,7 @@ public class TestInputFragmentActivity extends TestInputActivity {
 
         @Override
         protected void initView(View v) {
+            WindowSoftInputCompat.assist(getActivity());
             ((TextView) v.findViewById(R.id.tv_top)).setText(msg);
         }
     }
