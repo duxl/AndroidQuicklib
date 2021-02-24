@@ -69,6 +69,24 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestInputActivity"
+            android:label="键盘遮挡输入框问题/普通Activity"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TestInputFragmentActivity"
+            android:label="键盘遮挡输入框问题/内嵌Fragment"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
