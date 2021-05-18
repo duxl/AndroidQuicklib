@@ -18,6 +18,8 @@ android {
 
         buildConfigField("String", "pageAction", "\"" + pageAction + "\"")
         manifestPlaceholders = [pageAction: pageAction]
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -35,6 +37,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':Androidbaselib')
+    //implementation 'com.android.support:multidex:2.0.1'
 
     // annotationProcessor 在每个module中都必须配置才起作用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
