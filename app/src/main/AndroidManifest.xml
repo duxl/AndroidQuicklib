@@ -87,6 +87,15 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestWebActivity"
+            android:label="通用WebView"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
