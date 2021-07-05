@@ -4,6 +4,8 @@ import com.duxl.baselib.utils.Utils;
 
 import java.util.HashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * AppGlobalHttpConfig
  * create by duxl 2020/8/18
@@ -17,7 +19,7 @@ public class AppGlobalHttpConfig extends com.duxl.baselib.http.GlobalHttpConfig 
     }
 
     @Override
-    public HashMap<String, String> getHeaders() {
+    public HashMap<String, String> getHeaders(Interceptor.Chain chain) {
         HashMap<String, String> map = new HashMap<>();
         // 这里可以放一些全局header参数
         map.put("app_version_name", Utils.getVersionName());
