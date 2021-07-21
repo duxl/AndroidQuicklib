@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.duxl.android.quicklib.http.HttpService;
 import com.duxl.android.quicklib.http.Root;
+import com.duxl.baselib.download.DownLoadManager;
 import com.duxl.baselib.http.BaseHttpObserver;
 import com.duxl.baselib.http.RetrofitManager;
 import com.duxl.baselib.rx.LifecycleTransformer;
@@ -12,7 +13,10 @@ import com.duxl.baselib.rx.SimpleObserver;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.widget.SimpleOnLoadListener;
 import com.google.gson.Gson;
+import com.liulishuo.filedownloader.BaseDownloadTask;
+import com.liulishuo.filedownloader.FileDownloadLargeFileListener;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 
 import butterknife.BindView;
@@ -49,9 +53,49 @@ public class TestHttpRequestActivity extends BaseActivity {
     public void onClickView(View v) {
         if (v.getId() == R.id.btn_get) {
             getRequest();
+            //testDown();
         } else if (v.getId() == R.id.btn_post) {
             postRequest();
         }
+    }
+
+    private void testDown() {
+        String url1 = "http://league.qianqianshijie.com/releases/league_latest.apk";
+        String url2 = "https://hidao.pro/releases/hidao_latest.apk";
+        DownLoadManager
+                .getInstance()
+                .downloadApk(url2, new File(DownLoadManager.EXTERNAL_FILE_DIR, System.currentTimeMillis()+"_.apk").getPath(), new FileDownloadLargeFileListener() {
+                    @Override
+                    protected void pending(BaseDownloadTask task, long soFarBytes, long totalBytes) {
+                        System.out.println("duxl: pending# " + soFarBytes + "/" + totalBytes);
+                    }
+
+                    @Override
+                    protected void progress(BaseDownloadTask task, long soFarBytes, long totalBytes) {
+                        System.out.println("duxl: progress# " + soFarBytes + "/" + totalBytes);
+                    }
+
+                    @Override
+                    protected void paused(BaseDownloadTask task, long soFarBytes, long totalBytes) {
+
+                    }
+
+                    @Override
+                    protected void completed(BaseDownloadTask task) {
+                        System.out.println("duxl: completed");
+                    }
+
+                    @Override
+                    protected void error(BaseDownloadTask task, Throwable e) {
+                        System.out.println("duxl: error# " + e.getMessage());
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    protected void warn(BaseDownloadTask task) {
+                        System.out.println("duxl: warn");
+                    }
+                });
     }
 
 

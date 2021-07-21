@@ -4,7 +4,11 @@ import com.duxl.baselib.utils.Utils;
 
 import java.util.HashMap;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+
 import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 
 /**
  * AppGlobalHttpConfig
@@ -25,5 +29,23 @@ public class AppGlobalHttpConfig extends com.duxl.baselib.http.GlobalHttpConfig 
         map.put("app_version_name", Utils.getVersionName());
         map.put("app_version_code", String.valueOf(Utils.getVersionCode()));
         return map;
+    }
+
+    @Override
+    public boolean isDEBUG() {
+        return true;
+    }
+
+    @Override
+    public void configurationOKHttp(OkHttpClient.Builder builder) {
+        //builder.sslSocketFactory(socketFactory);
+        //解决报错javax.net.ssl.SSLPeerUnverifiedException: Hostname 127.0.0.1 not verified
+        builder.hostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String s, SSLSession sslSession) {
+                System.out.println("duxl:主机:" + s);
+                return true;
+            }
+        });
     }
 }
