@@ -49,13 +49,14 @@ public class TestHttpRequestActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_get, R.id.btn_post})
+    @OnClick({R.id.btn_get, R.id.btn_post, R.id.btn_down})
     public void onClickView(View v) {
         if (v.getId() == R.id.btn_get) {
             getRequest();
-            //testDown();
         } else if (v.getId() == R.id.btn_post) {
             postRequest();
+        } else if(v.getId() == R.id.btn_down) {
+            testDown();
         }
     }
 
