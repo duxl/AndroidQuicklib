@@ -1,5 +1,6 @@
 package com.duxl.android.quicklib;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -12,13 +13,20 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.ui.fragment.webview.BaseWebFragment;
+import com.duxl.baselib.utils.EmptyUtils;
 import com.duxl.baselib.utils.ToastUtils;
+import com.duxl.baselib.utils.Utils;
 import com.duxl.baselib.widget.BaseJSInterface;
+
+import java.text.MessageFormat;
 
 /**
  * create by duxl 2021/5/18
  */
 public class TestWebActivity extends BaseActivity {
+
+    private String mUrl;
+    private String mTitle;
 
     @Override
     protected int getLayoutResId() {
@@ -26,11 +34,22 @@ public class TestWebActivity extends BaseActivity {
     }
 
     @Override
+    protected void initParams(Intent args) {
+        super.initParams(args);
+        mUrl = args.getStringExtra("url");
+        mTitle = args.getStringExtra("title");
+    }
+
+    @Override
     protected void initView(View v) {
         hideStateBar();
         hideActionBar();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html", null));
+        if (EmptyUtils.isNotEmpty(mUrl)) {
+            transaction.add(R.id.container, WebFragment.newInstance(mTitle, mUrl, null));
+        } else {
+            transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html", null));
+        }
         transaction.commit();
     }
 
@@ -48,7 +67,7 @@ public class TestWebActivity extends BaseActivity {
         @Override
         protected String getUserAgentString(WebSettings webSettings) {
             String userAgent = webSettings.getUserAgentString();
-            userAgent += " AndroidDemoApp";
+            userAgent += MessageFormat.format(" AndroidDemoApp/{0}/{1}", Utils.getVersionCode(), Utils.getVersionName());
             return userAgent;
         }
 
@@ -68,7 +87,7 @@ public class TestWebActivity extends BaseActivity {
             }
 
             @Override
-            protected com.duxl.baselib.ui.fragment.BaseFragment getWebFragment() {
+            protected WebFragment getWebFragment() {
                 return WebFragment.this;
             }
 
