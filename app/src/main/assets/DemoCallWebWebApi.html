@@ -81,6 +81,16 @@
 				//	alert("我是左边返回按钮，我被点击了");
 				//	return true;
 				//}
+				
+				
+				/*
+				 * 二级页面设置的返回数据，返回到当前页面时，app回将二级h5返回的数据回调到此函数
+				 * requestCode: 当前页面打开二级页面时传递的请求码
+				 * resultData：二级页面设置的返回数据
+				 */
+				function onAppWebResult(requestCode, resultData) {
+					alert("收到返回数据：requestCode=" + requestCode + ", resultData=" + resultData);
+				}
 
 
 		</script>
@@ -89,6 +99,7 @@
         <h1>Android示例</h1>
         userAgent：
         <script>document.write(navigator.userAgent);</script>
+		<hr/>
 
         <h2>1.UI相关API</h2>
 
@@ -132,10 +143,15 @@
         <br/><br/>
 
         <h3>1.5浏览器窗口</h3>
-		当前窗口打开二级页面：<a href="DemoCallWebWebApi_sub.html">打开</a><br/>
+		当前窗口打开二级页面：<a href="DemoCallWebWebApi_sub.html">打开</a><br/><br/>
+		
         新窗口打开百度-调用API：<a href="javascript:AppAndroid.openNewBrowser('打开新窗口（API方式）', 'https://m.baidu.com/')">打开</a><br/>
-        新窗口打开百度-使用Url：<a href="https://m.baidu.com/?appTarget=newBrowser&appTitle=打开新窗口（Url方式）">打开</a><br/>
-        关闭当前窗口：<a href="javascript:AppAndroid.closeBrowser()">关闭</a>
+		新窗口打开二级-调用API（测试返回数据）：<a href="javascript:AppAndroid.openNewBrowser('API方式打开新窗口（测试返回数据）', 'file:///android_asset/DemoCallWebWebApi_ResultData.html', 100)">打开</a><br/><br/>
+		
+        新窗口打开百度-使用Url：<a href="https://m.baidu.com/?appTarget=newBrowser&appTitle=Url方式打开新窗口（测试返回数据）">打开</a><br/>
+		新窗口打开二级-使用Url（测试返回数据）：<a href="DemoCallWebWebApi_ResultData.html?appTarget=newBrowser&appTitle=打开新窗口（Url方式）&requestCode=101">打开</a><br/><br/>
+		
+        关闭当前窗口：<a href="javascript:AppAndroid.closeBrowser()">关闭</a><br/>
 
         <h3>1.6页面可见性</h3>
         监听页面可见性：<a href="DemoCallWebWebApi_Visible.html?appTarget=newBrowser&appTitle=监听页面可见性">打开</a><br/>
