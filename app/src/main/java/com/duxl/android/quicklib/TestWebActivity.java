@@ -48,7 +48,7 @@ public class TestWebActivity extends BaseActivity {
         if (EmptyUtils.isNotEmpty(mUrl)) {
             transaction.add(R.id.container, WebFragment.newInstance(mTitle, mUrl, null));
         } else {
-            transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html", null));
+            transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html?js_file=app.js", null));
         }
         transaction.commit();
     }

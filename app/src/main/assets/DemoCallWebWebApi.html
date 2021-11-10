@@ -2,7 +2,8 @@
 	<head>
 		<title>App接口H5测试</title>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-		<script type="text/javascript" src="app.js"></script>
+        <!-- 为了达到demo能在其它项目中运行，这里动态引入android的实例对象 -->
+		<script type="text/javascript" src="load_js_utils.js"></script>
 		<script type="text/javascript">
 				// 设置状态栏背景颜色
 				function setStateBarColor() {
@@ -131,6 +132,52 @@
 					}, 500);
 				}
 
+				// 当前页面打开二级页面
+				function openUrlInCurrentBrowser(targetUrl) {
+                    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 这里只是为了demo可以在不同项目中演示运行
+				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
+				    var newUrl = appendJsFileToUrl(targetUrl);
+				    window.location.href = newUrl;
+				}
+
+                // api方式打开新浏览器窗口（只能完整url）
+				function apiOpenNewBrowser(title, targetUrl) {
+				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 这里只是为了demo可以在不同项目中演示运行
+				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
+				    var newUrl = appendJsFileToUrl(targetUrl);
+                    app.openNewBrowser(title, newUrl);
+				}
+
+                // api方式打开新浏览器窗口（需要返回数据）
+                function apiOpenNewBrowserForResult(title, targetUrl, requestCode) {
+                    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 这里只是为了demo可以在不同项目中演示运行
+				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
+                    var newUrl = appendJsFileToUrl(targetUrl);
+                    // 下级页面如果调用setResultData(str)，返回到本页面时，app会回调js的onAppWebResult(requestCode, resultData)方法
+                    app.openNewBrowser(title, newUrl, requestCode);
+                }
+
+                // url方式打开新浏览器窗口（支持相对url）
+				function urlOpenNewBrowser(targetUrl) {
+				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 这里只是为了demo可以在不同项目中演示运行
+				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
+				    var newUrl = appendJsFileToUrl(targetUrl);
+                    window.location.href = newUrl;
+				}
+
+				// url方式打开新浏览器窗口（需要返回数据）
+				function urlOpenNewBrowserForResult(targetUrl) {
+				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 这里只是为了demo可以在不同项目中演示运行
+				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
+				    var newUrl = appendJsFileToUrl(targetUrl);
+				    // 下级页面如果调用setResultData(str)，返回到本页面时，app会回调js的onAppWebResult(requestCode, resultData)方法
+                    window.location.href = newUrl;
+				}
 
 		</script>
 	</head>
@@ -186,18 +233,18 @@
         <br/><br/>
 
         <h3>1.5浏览器窗口</h3>
-		当前窗口打开二级页面：<a href="DemoCallWebWebApi_sub.html">打开</a><br/><br/>
-		
-        新窗口打开百度-调用API：<a href="javascript:app.openNewBrowser('打开新窗口（API方式）', 'https://m.baidu.com/')">打开</a><br/>
-		新窗口打开二级-调用API（测试返回数据）：<a href="javascript:app.openNewBrowser('API方式打开新窗口（测试返回数据）', 'file:///android_asset/DemoCallWebWebApi_ResultData.html', 100)">打开</a><br/><br/>
-		
-        新窗口打开百度-使用Url：<a href="https://m.baidu.com/?appTarget=newBrowser&appTitle=Url方式打开新窗口（测试返回数据）">打开</a><br/>
-		新窗口打开二级-使用Url（测试返回数据）：<a href="DemoCallWebWebApi_ResultData.html?appTarget=newBrowser&appTitle=打开新窗口（Url方式）&requestCode=101">打开</a><br/><br/>
-		
+		当前窗口打开二级页面：<a href="javascript:openUrlInCurrentBrowser('DemoCallWebWebApi_sub.html')">打开</a><br/><br/>
+
+        新窗口打开百度-调用API（只能完整url）：<a href="javascript:apiOpenNewBrowser('打开新窗口（API方式）', 'https://m.baidu.com/')">打开</a><br/>
+		新窗口打开二级-调用API（测试返回数据）：<a href="javascript:apiOpenNewBrowserForResult('API方式打开新窗口（测试返回数据）', 'file:///android_asset/DemoCallWebWebApi_ResultData.html', 100)">打开</a><br/><br/>
+
+        新窗口打开百度-使用Url（支持相对url）：<a href="javascript:urlOpenNewBrowser('http://www.baidu.com?appTarget=newBrowser&appTitle=Url方式打开新窗口')">打开</a><br/>
+		新窗口打开二级-使用Url（测试返回数据）：<a href="javascript:urlOpenNewBrowserForResult('DemoCallWebWebApi_ResultData.html?appTarget=newBrowser&appTitle=Url方式打开新窗口（测试返回数据）&requestCode=101')">打开</a><br/><br/>
+
         关闭当前窗口：<a href="javascript:app.closeBrowser()">关闭</a><br/>
 
         <h3>1.6页面可见性</h3>
-        监听页面可见性：<a href="DemoCallWebWebApi_Visible.html?appTarget=newBrowser&appTitle=监听页面可见性">打开</a><br/>
+        监听页面可见性：<a href="javascript:urlOpenNewBrowser('DemoCallWebWebApi_Visible.html?appTarget=newBrowser&appTitle=监听页面可见性')">打开</a><br/>
         <br/><br/>
         <br/><br/>
     </body>
