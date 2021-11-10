@@ -2,6 +2,7 @@
 	<head>
 		<title>App接口H5测试</title>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<script type="text/javascript" src="app.js"></script>
 		<script type="text/javascript">
 				// app点击返回按钮回调函数
 				// 返回true：表示h5已经处理改事件，app不做任何操作
@@ -12,8 +13,8 @@
 						alert("请输入返回数据");
 						return;
 					}
-					AppAndroid.setResultData(data);
-					AppAndroid.closeBrowser();
+					app.setResultData(data);
+					app.closeBrowser();
 				}
 
 

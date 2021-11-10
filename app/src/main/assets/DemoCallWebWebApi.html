@@ -2,12 +2,13 @@
 	<head>
 		<title>App接口H5测试</title>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<script type="text/javascript" src="app.js"></script>
 		<script type="text/javascript">
 				// 设置状态栏背景颜色
 				function setStateBarColor() {
 					var color = prompt("请输入颜色","#8000FF00");
 					if(color){
-						AppAndroid.setStateBarColor(color);
+						app.setStateBarColor(color);
 					}
 				}
 				
@@ -15,7 +16,7 @@
 				function setTitleBarColor() {
 					var color = prompt("请输入颜色","#800000FF");
 					if(color){
-						AppAndroid.setTitleBarColor(color);
+						app.setTitleBarColor(color);
 					}
 				}
 				
@@ -23,7 +24,7 @@
 				function setTitleText() {
 					var title = prompt("请输入标题","我是标题内容");
 					if(title){
-						AppAndroid.setTitleText(title);
+						app.setTitleText(title);
 					}
 				}
 				
@@ -31,7 +32,7 @@
 				function setBackImageUrl() {
 					var url = prompt("请输入返回图标url地址","https://z3.ax1x.com/2021/07/21/WUDL1P.png");
 					if(url){
-						AppAndroid.setBackImageUrl(url);
+						app.setBackImageUrl(url);
 					}
 				}
 				
@@ -39,7 +40,7 @@
 				function setRightText() {
 					var text = prompt("请输入按钮文字","菜单");
 					if(text){
-						AppAndroid.setRightText(text);
+						app.setRightText(text);
 					}
 				}
 				
@@ -47,13 +48,13 @@
 				function setRightImage() {
 					var url = prompt("请输入按钮图标url地址","https://z3.ax1x.com/2021/07/21/WUDqpt.png");
 					if(url){
-						AppAndroid.setRightImage(url);
+						app.setRightImage(url);
 					}
 				}
 				
 				// 启用下拉刷新
 				function openRefresh() {
-					AppAndroid.setEnableRefresh(true);
+					app.setEnableRefresh(true);
 					alert("已启用，请下拉页面试试");
 				}
 
@@ -61,7 +62,7 @@
 				function onAppWebRefresh() {
 					alert("收到下拉刷新");
 					window.location.reload();
-					//AppAndroid.stopRefresh();
+					//app.stopRefresh();
 				}		
 
 				// app点击标题栏右边Text回调函数
@@ -91,6 +92,44 @@
 				function onAppWebResult(requestCode, resultData) {
 					alert("收到返回数据：requestCode=" + requestCode + ", resultData=" + resultData);
 				}
+				
+				/*
+				 * 显示加载框（一般用于提交数据，请求接口等耗时操作）
+				 *
+				 */
+				function showLoadingDialog() {
+					//1.调用app的加载框
+					app.showProgressDialog("数据保存中...");
+					//可以是否能取消
+					// 第一个参数：进度框提示文案
+					// 第二个参数：点击加载框外是否取消弹框
+					// 第三个参数：点击手机的返回键是否可取消弹框
+					//app.showProgressDialog("数据保存中...", true, true);
+					
+					// 2.取消进度框，这里使用setTimeout模拟耗时3秒
+					window.setTimeout(function(){
+						app.hideProgressDialog();
+					}, 3000);
+					
+				}
+				
+				/*
+				 * 显示进度框（模拟文件下载）
+				 *
+				 */
+				function showProgressDialog() {
+					var num = 0;
+					app.showProgressDialog("已下载 " + num + "%");
+					var id = window.setInterval(function(){
+						if(num > 100) {
+							app.hideProgressDialog();
+							window.clearInterval(id);
+						} else {
+							app.showProgressDialog("已下载 " + num + "%");
+							num += 10;
+						}						
+					}, 500);
+				}
 
 
 		</script>
@@ -104,23 +143,23 @@
         <h2>1.UI相关API</h2>
 
         <h3>1.1状态栏</h3>
-		是否显示：<a href="javascript:AppAndroid.setStateBarVisible(true)">显示</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.setStateBarVisible(false)">隐藏</a>
+		是否显示：<a href="javascript:app.setStateBarVisible(true)">显示</a>
+        &nbsp;&nbsp;<a href="javascript:app.setStateBarVisible(false)">隐藏</a>
         <br/><br/>
-        显示模式：<a href="javascript:AppAndroid.setStateBarMode(true)">深色</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.setStateBarMode(false)">浅色</a>
+        显示模式：<a href="javascript:app.setStateBarMode(true)">深色</a>
+        &nbsp;&nbsp;<a href="javascript:app.setStateBarMode(false)">浅色</a>
         <br/><br/>
         背景颜色：<a href="javascript:setStateBarColor()">设置背景颜色</a>
         <br/><br/>
 
         <h3>1.2标题栏</h3>
-        是否显示：<a href="javascript:AppAndroid.setTitleBarVisible(true)">显示</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.setTitleBarVisible(false)">隐藏</a>
+        是否显示：<a href="javascript:app.setTitleBarVisible(true)">显示</a>
+        &nbsp;&nbsp;<a href="javascript:app.setTitleBarVisible(false)">隐藏</a>
         <br/><br/>
         背景颜色：<a href="javascript:setTitleBarColor()">设置背景颜色</a>
         <br/><br/>
-        显示模式：<a href="javascript:AppAndroid.setTitleBarModel(false)">正常</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.setTitleBarModel(true)">悬浮</a>
+        显示模式：<a href="javascript:app.setTitleBarModel(false)">正常</a>
+        &nbsp;&nbsp;<a href="javascript:app.setTitleBarModel(true)">悬浮</a>
         <br/><br/>
         标题文字：<a href="javascript:setTitleText()">设置标题</a>
         <br/><br/>
@@ -133,25 +172,29 @@
 
         <h3>1.3页面下拉刷新</h3>
         页面下拉刷新：<a href="javascript:openRefresh()">启用</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.setEnableRefresh(false)">禁用</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.stopRefresh()">停止(完成)刷新</a>
+        &nbsp;&nbsp;<a href="javascript:app.setEnableRefresh(false)">禁用</a>
+        &nbsp;&nbsp;<a href="javascript:app.stopRefresh()">停止(完成)刷新</a>
         <br/><br/>
 
-        <h3>1.4Toast吐丝提示</h3>
-        吐丝提示：<a href="javascript:AppAndroid.showToast('提示信息')">效果1</a>
-        &nbsp;&nbsp;<a href="javascript:AppAndroid.showToast2('提示信息')">效果2</a>
+        <h3>1.4提示</h3>
+        吐丝提示：<a href="javascript:app.showToast('提示信息')">效果1</a>
+        &nbsp;&nbsp;<a href="javascript:app.showToast2('提示信息')">效果2</a>
+		<br/><br/>
+		加载框提示：<a href="javascript:showLoadingDialog()">显示加载框（用于耗时操作）</a>
+        <br/><br/>
+		进度框提示：<a href="javascript:showProgressDialog()">显示进度框（模拟文件下载）</a>
         <br/><br/>
 
         <h3>1.5浏览器窗口</h3>
 		当前窗口打开二级页面：<a href="DemoCallWebWebApi_sub.html">打开</a><br/><br/>
 		
-        新窗口打开百度-调用API：<a href="javascript:AppAndroid.openNewBrowser('打开新窗口（API方式）', 'https://m.baidu.com/')">打开</a><br/>
-		新窗口打开二级-调用API（测试返回数据）：<a href="javascript:AppAndroid.openNewBrowser('API方式打开新窗口（测试返回数据）', 'file:///android_asset/DemoCallWebWebApi_ResultData.html', 100)">打开</a><br/><br/>
+        新窗口打开百度-调用API：<a href="javascript:app.openNewBrowser('打开新窗口（API方式）', 'https://m.baidu.com/')">打开</a><br/>
+		新窗口打开二级-调用API（测试返回数据）：<a href="javascript:app.openNewBrowser('API方式打开新窗口（测试返回数据）', 'file:///android_asset/DemoCallWebWebApi_ResultData.html', 100)">打开</a><br/><br/>
 		
         新窗口打开百度-使用Url：<a href="https://m.baidu.com/?appTarget=newBrowser&appTitle=Url方式打开新窗口（测试返回数据）">打开</a><br/>
 		新窗口打开二级-使用Url（测试返回数据）：<a href="DemoCallWebWebApi_ResultData.html?appTarget=newBrowser&appTitle=打开新窗口（Url方式）&requestCode=101">打开</a><br/><br/>
 		
-        关闭当前窗口：<a href="javascript:AppAndroid.closeBrowser()">关闭</a><br/>
+        关闭当前窗口：<a href="javascript:app.closeBrowser()">关闭</a><br/>
 
         <h3>1.6页面可见性</h3>
         监听页面可见性：<a href="DemoCallWebWebApi_Visible.html?appTarget=newBrowser&appTitle=监听页面可见性">打开</a><br/>
