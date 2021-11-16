@@ -48,7 +48,8 @@ public class TestWebActivity extends BaseActivity {
         if (EmptyUtils.isNotEmpty(mUrl)) {
             transaction.add(R.id.container, WebFragment.newInstance(mTitle, mUrl, null));
         } else {
-            transaction.add(R.id.container, WebFragment.newInstance(null, "https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?js_file=app.js", null));
+            //transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
+            transaction.add(R.id.container, WebFragment.newInstance(null, "https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
         }
         transaction.commit();
     }
@@ -73,7 +74,7 @@ public class TestWebActivity extends BaseActivity {
 
         @Override
         protected void setJavascriptInterface(WebView webView) {
-            webView.addJavascriptInterface(new JSInterface(), "AppAndroid");
+            webView.addJavascriptInterface(new JSInterface(), "AppAndroidx2");
         }
 
         /**

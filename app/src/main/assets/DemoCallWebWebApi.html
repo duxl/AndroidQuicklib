@@ -134,47 +134,47 @@
 
 				// 当前页面打开二级页面
 				function openUrlInCurrentBrowser(targetUrl) {
-                    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+                    // 实际项目中不需要调用appendParamToUrl，直接使用targetUrl，
 				    // 这里只是为了demo可以在不同项目中演示运行
 				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
-				    var newUrl = appendJsFileToUrl(targetUrl);
+				    var newUrl = appendParamToUrl(targetUrl);
 				    window.location.href = newUrl;
 				}
 
                 // api方式打开新浏览器窗口（只能完整url）
 				function apiOpenNewBrowser(title, targetUrl) {
-				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 实际项目中不需要调用appendParamToUrl，直接使用targetUrl，
 				    // 这里只是为了demo可以在不同项目中演示运行
 				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
-				    var newUrl = appendJsFileToUrl(targetUrl);
+				    var newUrl = appendParamToUrl(targetUrl);
                     app.openNewBrowser(title, newUrl);
 				}
 
                 // api方式打开新浏览器窗口（需要返回数据）
                 function apiOpenNewBrowserForResult(title, targetUrl, requestCode) {
-                    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+                    // 实际项目中不需要调用appendParamToUrl，直接使用targetUrl，
 				    // 这里只是为了demo可以在不同项目中演示运行
 				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
-                    var newUrl = appendJsFileToUrl(targetUrl);
+                    var newUrl = appendParamToUrl(targetUrl);
                     // 下级页面如果调用setResultData(str)，返回到本页面时，app会回调js的onAppWebResult(requestCode, resultData)方法
                     app.openNewBrowser(title, newUrl, requestCode);
                 }
 
                 // url方式打开新浏览器窗口（支持相对url）
 				function urlOpenNewBrowser(targetUrl) {
-				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 实际项目中不需要调用appendParamToUrl，直接使用targetUrl，
 				    // 这里只是为了demo可以在不同项目中演示运行
 				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
-				    var newUrl = appendJsFileToUrl(targetUrl);
+				    var newUrl = appendParamToUrl(targetUrl);
                     window.location.href = newUrl;
 				}
 
 				// url方式打开新浏览器窗口（需要返回数据）
 				function urlOpenNewBrowserForResult(targetUrl) {
-				    // 实际项目中不需要调用appendJsFileToUrl，直接使用targetUrl，
+				    // 实际项目中不需要调用appendParamToUrl，直接使用targetUrl，
 				    // 这里只是为了demo可以在不同项目中演示运行
 				    // 因为不同项目注入的android对象不一样，这里只是动态设置android对象而已
-				    var newUrl = appendJsFileToUrl(targetUrl);
+				    var newUrl = appendParamToUrl(targetUrl);
 				    // 下级页面如果调用setResultData(str)，返回到本页面时，app会回调js的onAppWebResult(requestCode, resultData)方法
                     window.location.href = newUrl;
 				}

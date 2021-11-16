@@ -16,14 +16,15 @@ function getQueryVariable(variable) {
 // 动态加载js文件
 var script = document.createElement("script");
 script.type="text/javascript";
-script.src= getQueryVariable("js_file");
+//script.src= getQueryVariable("js_file");
+script.innerHTML = "app = " + getQueryVariable("app_instance_name") + ";";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 // 在url后面添加js_file文件
-function appendJsFileToUrl(targetUrl) {
+function appendParamToUrl(targetUrl) {
     if(targetUrl.indexOf("?") > 0) {
-        return targetUrl + "&js_file=" + getQueryVariable("js_file");
+        return targetUrl + "&app_instance_name=" + getQueryVariable("app_instance_name");
     } else {
-        return targetUrl + "?js_file=" + getQueryVariable("js_file");
+        return targetUrl + "?app_instance_name=" + getQueryVariable("app_instance_name");
     }
 }
