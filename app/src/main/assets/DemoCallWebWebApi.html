@@ -3,8 +3,8 @@
 		<title>Android通用API示例</title>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
         <!-- 为了达到demo能在其它项目中运行，这里动态引入android的实例对象 -->
-		<script type="text/javascript" src="load_js_utils.js"></script>
-		<script type="text/javascript">
+        <script type="text/javascript" src="load_js_utils.js"></script>
+        <script type="text/javascript">
 				// 设置状态栏背景颜色
 				function setStateBarColor() {
 					var color = prompt("请输入颜色","#8000FF00");
@@ -12,7 +12,7 @@
 						app.setStateBarColor(color);
 					}
 				}
-				
+
 				// 设置标题背景颜色
 				function setTitleBarColor() {
 					var color = prompt("请输入颜色","#800000FF");
@@ -20,7 +20,7 @@
 						app.setTitleBarColor(color);
 					}
 				}
-				
+
 				// 设置标题文字
 				function setTitleText() {
 					var title = prompt("请输入标题","我是标题内容");
@@ -28,7 +28,7 @@
 						app.setTitleText(title);
 					}
 				}
-				
+
 				// 设置返回图标url地址
 				function setBackImageUrl() {
 					var url = prompt("请输入返回图标url地址","https://z3.ax1x.com/2021/07/21/WUDL1P.png");
@@ -36,7 +36,7 @@
 						app.setBackImageUrl(url);
 					}
 				}
-				
+
 				// 设置右边按钮文字
 				function setRightText() {
 					var text = prompt("请输入按钮文字","菜单");
@@ -44,7 +44,7 @@
 						app.setRightText(text);
 					}
 				}
-				
+
 				// 设置右边按钮图标
 				function setRightImage() {
 					var url = prompt("请输入按钮图标url地址","https://z3.ax1x.com/2021/07/21/WUDqpt.png");
@@ -52,7 +52,7 @@
 						app.setRightImage(url);
 					}
 				}
-				
+
 				// 启用下拉刷新
 				function openRefresh() {
 					app.setEnableRefresh(true);
@@ -64,7 +64,7 @@
 					alert("收到下拉刷新");
 					window.location.reload();
 					//app.stopRefresh();
-				}		
+				}
 
 				// app点击标题栏右边Text回调函数
 				function onAppWebRightTextClick() {
@@ -83,8 +83,8 @@
 				//	alert("我是左边返回按钮，我被点击了");
 				//	return true;
 				//}
-				
-				
+
+
 				/*
 				 * 二级页面设置的返回数据，返回到当前页面时，app回将二级h5返回的数据回调到此函数
 				 * requestCode: 当前页面打开二级页面时传递的请求码
@@ -93,7 +93,7 @@
 				function onAppWebResult(requestCode, resultData) {
 					alert("收到返回数据：requestCode=" + requestCode + ", resultData=" + resultData);
 				}
-				
+
 				/*
 				 * 显示加载框（一般用于提交数据，请求接口等耗时操作）
 				 *
@@ -106,14 +106,14 @@
 					// 第二个参数：点击加载框外是否取消弹框
 					// 第三个参数：点击手机的返回键是否可取消弹框
 					//app.showProgressDialog("数据保存中...", true, true);
-					
+
 					// 2.取消进度框，这里使用setTimeout模拟耗时3秒
 					window.setTimeout(function(){
 						app.hideProgressDialog();
 					}, 3000);
-					
+
 				}
-				
+
 				/*
 				 * 显示进度框（模拟文件下载）
 				 *
@@ -128,7 +128,7 @@
 						} else {
 							app.showProgressDialog("已下载 " + num + "%");
 							num += 10;
-						}						
+						}
 					}, 500);
 				}
 
