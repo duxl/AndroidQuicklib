@@ -49,9 +49,9 @@ public class TestWebActivity extends BaseActivity {
             transaction.add(R.id.container, WebFragment.newInstance(mTitle, mUrl, null));
         } else {
             // 本地修改后直接访问assets目录文件
-            transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
+            //transaction.add(R.id.container, WebFragment.newInstance(null, "file:///android_asset/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
             // 修改提交到github后，可直接访问github上的文件
-            //transaction.add(R.id.container, WebFragment.newInstance(null, "https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
+            transaction.add(R.id.container, WebFragment.newInstance(null, "https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?app_instance_name=AppAndroidx2", null));
         }
         transaction.commit();
     }
