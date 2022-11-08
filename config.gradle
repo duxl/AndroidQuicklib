@@ -12,7 +12,7 @@ ext {
             androidxVersion      : "1.3.0-alpha01",
             swiperefreshlayout   : "1.1.0",
             recyclerview         : "1.2.0-alpha05",
-            flexbox              : "1.0.0",
+            flexbox              : "3.0.0",
             constraintlayout     : "2.0.0-rc1",
             butterknifeSdkVersion: "10.2.3",
             smartrefresh         : "2.0.1",
@@ -30,7 +30,7 @@ ext {
             // google自带下拉刷新组件
             "swiperefreshlayout"                  : "androidx.swiperefreshlayout:swiperefreshlayout:${version["swiperefreshlayout"]}",
             "recyclerview"                        : "androidx.recyclerview:recyclerview:${version["recyclerview"]}",
-            "flexbox"                             : "com.google.android:flexbox${version["flexbox"]}",
+            "flexbox"                             : "com.google.android.flexbox:flexbox${version["flexbox"]}",
             "baseviewadapter"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4",
             "flexbox"                             : "com.google.android:flexbox:1.0.0",
             "butterknife"                         : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
