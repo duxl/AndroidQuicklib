@@ -30,7 +30,7 @@ ext {
             // google自带下拉刷新组件
             "swiperefreshlayout"                  : "androidx.swiperefreshlayout:swiperefreshlayout:${version["swiperefreshlayout"]}",
             "recyclerview"                        : "androidx.recyclerview:recyclerview:${version["recyclerview"]}",
-            "flexbox"                             : "com.google.android.flexbox:flexbox${version["flexbox"]}",
+            "flexbox"                             : "com.google.android.flexbox:flexbox:${version["flexbox"]}",
             "baseviewadapter"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4",
             "butterknife"                         : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
             "butterknife-compiler"                : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
