@@ -99,7 +99,15 @@
 
         <activity
             android:name=".TestWidgetActivity"
-            android:label="自定义控件">
+            android:label="自定义控件/心跳View">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TestMaskImageActivity"
+            android:label="自定义控件/不规则图片（遮罩ImageView）">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>

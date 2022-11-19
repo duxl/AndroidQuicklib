@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0"
+    android:padding="15dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="遮罩ImageView，通过遮罩显示不规则图片"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="1、使用shape遮罩显示一个实心圆图形" />
+
+        <com.duxl.baselib.widget.MaskImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/city_cq"
+            app:maskSrc="@drawable/mask_circular1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="2、使用shape遮罩显示一个空心圆图形" />
+
+        <com.duxl.baselib.widget.MaskImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/city_cq"
+            app:maskSrc="@drawable/mask_circular2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="3、使用png遮罩显示任意形状的图像" />
+
+        <com.duxl.baselib.widget.MaskImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/city_cq"
+            app:maskSrc="@drawable/mask_frame" />
+
+        <com.duxl.baselib.widget.MaskImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/city_cq"
+            app:maskSrc="@drawable/mask_heart" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.core.widget.NestedScrollView>
