@@ -20,6 +20,7 @@ ext {
             rxandroid            : "3.0.0",
             rxlifecycle          : "4.0.0",
             retrofitSdkVersion   : "2.9.0",
+            okhttp               : "4.10.0",
             glide                : "4.11.0",
     ]
 
