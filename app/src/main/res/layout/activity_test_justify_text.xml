@@ -23,6 +23,7 @@
                 android:background="#CCC"
                 android:text="姓名"
                 android:textSize="18sp"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字" />
 
             <com.duxl.baselib.widget.JustifyTextView
@@ -32,6 +33,7 @@
                 android:background="#CCC"
                 android:text="联系人"
                 android:textSize="18sp"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字" />
 
             <com.duxl.baselib.widget.JustifyTextView
@@ -41,6 +43,7 @@
                 android:background="#CCC"
                 android:text="工作单位"
                 android:textSize="18sp"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -54,7 +57,8 @@
             android:paddingVertical="10dp"
             android:text="两端分散对齐"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:jtv_enableJustify="true" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="0dp"
@@ -69,6 +73,7 @@
                 android:text="姓名:"
                 android:textSize="18sp"
                 app:jtv_disableLastChar="true"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字:" />
 
             <com.duxl.baselib.widget.JustifyTextView
@@ -79,6 +84,7 @@
                 android:text="联系人:"
                 android:textSize="18sp"
                 app:jtv_disableLastChar="true"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字:" />
 
             <com.duxl.baselib.widget.JustifyTextView
@@ -89,6 +95,7 @@
                 android:text="工作单位:"
                 android:textSize="18sp"
                 app:jtv_disableLastChar="true"
+                app:jtv_enableJustify="true"
                 app:jtv_placeWidthText="四个汉字:" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
