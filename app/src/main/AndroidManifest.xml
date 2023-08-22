@@ -112,6 +112,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestFirstLineMarginFlowLayoutActivity"
+            android:label="自定义控件/首行左右间距设置">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
