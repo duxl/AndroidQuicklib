@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CCC"
+                android:text="姓名"
+                android:textSize="18sp"
+                app:jtv_placeWidthText="四个汉字" />
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#CCC"
+                android:text="联系人"
+                android:textSize="18sp"
+                app:jtv_placeWidthText="四个汉字" />
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#CCC"
+                android:text="工作单位"
+                android:textSize="18sp"
+                app:jtv_placeWidthText="四个汉字" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.duxl.baselib.widget.JustifyTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="3"
+            android:background="#800000FF"
+            android:fontFamily="sans-serif-black"
+            android:paddingVertical="10dp"
+            android:text="两端分散对齐"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CCC"
+                android:text="姓名:"
+                android:textSize="18sp"
+                app:jtv_disableLastChar="true"
+                app:jtv_placeWidthText="四个汉字:" />
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#CCC"
+                android:text="联系人:"
+                android:textSize="18sp"
+                app:jtv_disableLastChar="true"
+                app:jtv_placeWidthText="四个汉字:" />
+
+            <com.duxl.baselib.widget.JustifyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#CCC"
+                android:text="工作单位:"
+                android:textSize="18sp"
+                app:jtv_disableLastChar="true"
+                app:jtv_placeWidthText="四个汉字:" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <view
+        class="com.duxl.android.quicklib.TestJustifyTextViewActivity$OtherTextView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="#800000FF"
+        android:paddingVertical="10dp"
+        android:text="对其它文本控件的支持"
+        android:textColor="#FFFFFF" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

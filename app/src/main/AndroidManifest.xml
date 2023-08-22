@@ -120,6 +120,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestJustifyTextViewActivity"
+            android:label="自定义控件/文字两端分散对齐">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

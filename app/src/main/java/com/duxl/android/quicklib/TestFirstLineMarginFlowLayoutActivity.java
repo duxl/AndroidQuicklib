@@ -15,8 +15,9 @@ import java.util.Random;
  */
 public class TestFirstLineMarginFlowLayoutActivity extends BaseActivity {
 
-    private FirstLineMarginFlowLayout mMarginFlowLayout;
-    private String[] items = {"首行左右间距示例", "First", "Margin", "FlowLayout"};
+    private FirstLineMarginFlowLayout mMarginFlowLayout1;
+    private FirstLineMarginFlowLayout mMarginFlowLayout2;
+    private String[] items = {"首行左右间距示例", "First", "Margin", "FlowLayout", "自定义View", "测量大小", "布局child的位置"};
 
     @Override
     protected int getLayoutResId() {
@@ -26,23 +27,36 @@ public class TestFirstLineMarginFlowLayoutActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         super.initView(v);
-        mMarginFlowLayout = findViewById(R.id.firstLineMarginFlowLayout);
+        setTitle("首行可设置margin的FlowLayout");
+        mMarginFlowLayout1 = findViewById(R.id.firstLineMarginFlowLayout1);
+        mMarginFlowLayout2 = findViewById(R.id.firstLineMarginFlowLayout2);
         findViewById(R.id.btn_add_view).setOnClickListener(btnAddView -> {
-            TextView tv = new TextView(this);
-            tv.setText(items[new Random().nextInt(items.length)]);
-            tv.setTextColor(Color.WHITE);
-            tv.setBackgroundColor(Color.RED);
-            tv.setPadding(30, 10, 30, 10);
-            mMarginFlowLayout.addView(tv);
+            String text = items[new Random().nextInt(items.length)];
+            mMarginFlowLayout1.addView(createTextView(text));
+            mMarginFlowLayout2.addView(createTextView(text));
         });
-        findViewById(R.id.btn_clear_view).setOnClickListener(btnClearView -> mMarginFlowLayout.removeAllItemViews());
+        findViewById(R.id.btn_clear_view).setOnClickListener(btnClearView -> mMarginFlowLayout1.removeAllItemViews());
 
-        mMarginFlowLayout.setOnLeftViewClickListener(leftView -> {
-            ToastUtils.show("筛选");
+        mMarginFlowLayout1.setOnLeftViewClickListener(leftView -> {
+            ToastUtils.show("筛选1");
         });
 
-        mMarginFlowLayout.setOnRightViewClickListener(rightView -> {
-            ToastUtils.show("保存");
+        mMarginFlowLayout1.setOnRightViewClickListener(rightView -> {
+            ToastUtils.show("保存1");
         });
+
+        mMarginFlowLayout2.setOnRightViewClickListener(rightView -> {
+            ToastUtils.show("保存2");
+        });
+    }
+
+    private TextView createTextView(String text) {
+        TextView tv = new TextView(this);
+        tv.setText(text);
+        tv.setTextColor(Color.WHITE);
+        tv.setBackgroundColor(Color.RED);
+        tv.setPadding(30, 10, 30, 10);
+        tv.setOnClickListener(v->ToastUtils.show(text));
+        return tv;
     }
 }

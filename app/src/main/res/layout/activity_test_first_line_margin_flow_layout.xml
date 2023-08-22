@@ -3,8 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用具体数值指定margin"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <com.duxl.baselib.widget.FirstLineMarginFlowLayout
         android:layout_width="match_parent"
@@ -12,86 +19,102 @@
         android:background="#666"
         app:flm_item_horizontal_space="10dp"
         app:flm_item_vertical_space="10dp"
-        app:flm_margin_left="147px"
-        app:flm_margin_right="121px">
+        app:flm_margin_left="50dp"
+        app:flm_margin_right="50dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:background="#CCCCCC"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
             android:text="Line"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:textSize="16sp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:background="#CCCCCC"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
             android:text="首行左右间距示例"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:textSize="16sp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:background="#CCCCCC"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
             android:text="Hello"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:textSize="16sp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:background="#CCCCCC"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
             android:text="Margin"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:textSize="16sp"/>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:background="#CCCCCC"
-            android:text="FlowLayout"
             android:paddingHorizontal="10dp"
             android:paddingVertical="4dp"
-            android:textSize="16sp"/>
+            android:text="FlowLayout"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
     </com.duxl.baselib.widget.FirstLineMarginFlowLayout>
 
-    <Button
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="使用布局文件占位margin"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:text="add child view" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_clear_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="clear child view" />
 
     <com.duxl.baselib.widget.FirstLineMarginFlowLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/firstLineMarginFlowLayout"
+        android:id="@+id/firstLineMarginFlowLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="#CCC"
         app:flm_item_horizontal_space="10dp"
         app:flm_item_vertical_space="10dp"
         app:flm_left_view="@layout/layout_filter"
-        app:flm_right_view="@layout/layout_save">
+        app:flm_right_view="@layout/layout_save" />
 
-    </com.duxl.baselib.widget.FirstLineMarginFlowLayout>
+    <com.duxl.baselib.widget.FirstLineMarginFlowLayout
+        android:id="@+id/firstLineMarginFlowLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#CCC"
+        app:flm_item_horizontal_space="10dp"
+        app:flm_item_vertical_space="10dp"
+        app:flm_right_view="@layout/layout_save" />
 
 </LinearLayout>
