@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/iv_img"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="50dp"
         android:layout_marginTop="100dp" />
 
     <LinearLayout
@@ -20,18 +20,39 @@
         android:layout_marginTop="100dp">
 
         <TextView
-            android:id="@+id/tv_elevation"
+            android:id="@+id/tv_triangle"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:text="elevation(100px)" />
+            android:text="triangle(30px)" />
 
         <SeekBar
-            android:id="@+id/seek_elevation"
+            android:id="@+id/seek_triangle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="30"
+            android:min="0"
+            android:progress="100" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_offset"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="triangleOffset(0%)" />
+
+        <SeekBar
+            android:id="@+id/seek_offset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="100"
             android:min="0"
-            android:progress="100" />
+            android:progress="30" />
 
     </LinearLayout>
 
@@ -44,7 +65,7 @@
             android:id="@+id/tv_cornerSizes"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:text="cornerSizes(30px)" />
+            android:text="cornerSizes(30%)" />
 
         <SeekBar
             android:id="@+id/seek_cornerSizes"
@@ -102,6 +123,7 @@
                 android:textColor="#0000FF" />
         </RadioGroup>
 
+
     </LinearLayout>
 
     <LinearLayout
@@ -113,44 +135,34 @@
         <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="shadowColor" />
+            android:text="inside" />
 
         <RadioGroup
-            android:id="@+id/group_shadow_color"
+            android:id="@+id/group_inside"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/shadow_red"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingVertical="10dp"
-                android:text="RED"
-                android:textColor="#FF0000" />
-
-            <RadioButton
-                android:id="@+id/shadow_green"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingVertical="10dp"
-                android:text="Green"
-                android:textColor="#00FF00" />
-
-            <RadioButton
-                android:id="@+id/shadow_blue"
+                android:id="@+id/radio_in"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
                 android:paddingVertical="10dp"
-                android:text="Blue"
-                android:textColor="#0000FF" />
+                android:text="in" />
+
+
+            <RadioButton
+                android:id="@+id/radio_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="10dp"
+                android:text="out" />
         </RadioGroup>
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

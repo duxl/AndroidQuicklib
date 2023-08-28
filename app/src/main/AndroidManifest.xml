@@ -136,6 +136,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestTriangleDrawableActivity"
+            android:label="Material/带三角尖的图片">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
