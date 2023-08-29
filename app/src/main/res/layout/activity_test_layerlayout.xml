@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="在布局中间中使用（最后一个完全显示）" />
+
+    <com.duxl.baselib.widget.LayerLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layer_item_height="50dp"
+        app:layer_item_offset="35dp"
+        app:layer_item_width="50dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_red" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_green" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_blue" />
+
+    </com.duxl.baselib.widget.LayerLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="在布局中间中使用(第一个完全显示)" />
+
+    <com.duxl.baselib.widget.LayerLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layer_item_height="50dp"
+        app:layer_item_offset="50dp"
+        app:layer_item_reverse="true"
+        app:layer_item_width="70dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_red" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_green" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_blue" />
+
+    </com.duxl.baselib.widget.LayerLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="在java代码中使用" />
+
+    <com.duxl.baselib.widget.LayerLayout
+        android:id="@+id/layer_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#60CCC000"
+        android:padding="10dp"
+        app:layer_item_height="30dp"
+        app:layer_item_offset="20dp"
+        app:layer_item_width="30dp" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add" />
+
+    <Button
+        android:id="@+id/btn_revert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="revert" />
+
+
+</LinearLayout>

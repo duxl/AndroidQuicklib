@@ -130,6 +130,14 @@
         </activity>
 
         <activity
+            android:name=".TestLayerLayoutActivity"
+            android:label="自定义控件/叠放Layer布局">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestShadowDrawableActivity"
             android:label="Material/带阴影的图片">
             <intent-filter>
