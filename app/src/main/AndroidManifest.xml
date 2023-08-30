@@ -152,6 +152,22 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestExpandListActivity"
+            android:label="可折叠列表/可折叠的列表（两级）">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TestExpand3ListActivity"
+            android:label="可折叠列表/可折叠的列表（三级）">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
