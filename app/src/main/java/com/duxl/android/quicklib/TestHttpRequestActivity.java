@@ -3,6 +3,7 @@ package com.duxl.android.quicklib;
 import android.view.View;
 import android.widget.TextView;
 
+import com.duxl.android.quicklib.databinding.ActivityTestHttpRequestBinding;
 import com.duxl.android.quicklib.http.HttpService;
 import com.duxl.android.quicklib.http.Root;
 import com.duxl.baselib.download.DownLoadManager;
@@ -19,8 +20,6 @@ import com.liulishuo.filedownloader.FileDownloadLargeFileListener;
 import java.io.File;
 import java.util.LinkedHashMap;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.disposables.Disposable;
 
@@ -30,8 +29,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
  */
 public class TestHttpRequestActivity extends BaseActivity {
 
-    @BindView(R.id.tv_response)
-    TextView mTvResponse;
+    private ActivityTestHttpRequestBinding mBinding;
 
     @Override
     protected int getLayoutResId() {
@@ -41,6 +39,10 @@ public class TestHttpRequestActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         setTitle("测试Http请求");
+        mBinding = ActivityTestHttpRequestBinding.bind(v);
+        mBinding.btnDown.setOnClickListener(this::onClickView);
+        mBinding.btnGet.setOnClickListener(this::onClickView);
+        mBinding.btnPost.setOnClickListener(this::onClickView);
         setOnLoadListener(new SimpleOnLoadListener() {
             @Override
             public void onErrorClick(int errCode) {
@@ -49,13 +51,12 @@ public class TestHttpRequestActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_get, R.id.btn_post, R.id.btn_down})
     public void onClickView(View v) {
         if (v.getId() == R.id.btn_get) {
             getRequest();
         } else if (v.getId() == R.id.btn_post) {
             postRequest();
-        } else if(v.getId() == R.id.btn_down) {
+        } else if (v.getId() == R.id.btn_down) {
             testDown();
         }
     }
@@ -65,7 +66,7 @@ public class TestHttpRequestActivity extends BaseActivity {
         String url2 = "https://hidao.pro/releases/hidao_latest.apk";
         DownLoadManager
                 .getInstance()
-                .downloadApk(url2, new File(DownLoadManager.EXTERNAL_FILE_DIR, System.currentTimeMillis()+"_.apk").getPath(), new FileDownloadLargeFileListener() {
+                .downloadApk(url2, new File(DownLoadManager.EXTERNAL_FILE_DIR, System.currentTimeMillis() + "_.apk").getPath(), new FileDownloadLargeFileListener() {
                     @Override
                     protected void pending(BaseDownloadTask task, long soFarBytes, long totalBytes) {
                         System.out.println("duxl: pending# " + soFarBytes + "/" + totalBytes);
@@ -114,7 +115,7 @@ public class TestHttpRequestActivity extends BaseActivity {
 //
 //                    @Override
 //                    public void onNext(@NonNull Root<LinkedHashMap<String, String>> data) {
-//                        mTvResponse.setText(new Gson().toJson(data));
+//                        mBinding.tvResponse.setText(new Gson().toJson(data));
 //                        getStatusView().showContent();
 //                    }
 //
@@ -146,7 +147,7 @@ public class TestHttpRequestActivity extends BaseActivity {
 //
 //                    @Override
 //                    public void onNext(@NonNull Root<LinkedHashMap<String, String>> data) {
-//                        mTvResponse.setText(new Gson().toJson(data));
+//                        mBinding.tvResponse.setText(new Gson().toJson(data));
 //                        getStatusView().showContent();
 //                    }
 //
@@ -169,7 +170,7 @@ public class TestHttpRequestActivity extends BaseActivity {
 
                     @Override
                     public void onSuccess(Root<LinkedHashMap<String, String>> root) {
-                        mTvResponse.setText(new Gson().toJson(root));
+                        mBinding.tvResponse.setText(new Gson().toJson(root));
                         getStatusView().showContent();
                     }
 
@@ -197,7 +198,7 @@ public class TestHttpRequestActivity extends BaseActivity {
 
                     @Override
                     public void onNext(@NonNull Object s) {
-                        mTvResponse.setText(s.toString());
+                        mBinding.tvResponse.setText(s.toString());
                         getStatusView().showContent();
                     }
 

@@ -3,11 +3,11 @@ package com.duxl.android.quicklib;
 import android.Manifest;
 import android.content.Intent;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.duxl.android.quicklib.databinding.ActivityTestGetPictureBinding;
 import com.duxl.baselib.rx.SimpleObserver;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.AlbumUtils;
@@ -19,8 +19,6 @@ import com.zhihu.matisse.Matisse;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.rxjava3.annotations.NonNull;
 
 /**
@@ -29,8 +27,7 @@ import io.reactivex.rxjava3.annotations.NonNull;
  */
 public class TestGetPictureActivity extends BaseActivity {
 
-    @BindView(R.id.iv_img)
-    ImageView mIvImg;
+    private ActivityTestGetPictureBinding mBinding;
 
     private final int mRequestCodeForImg = 10;
 
@@ -39,7 +36,14 @@ public class TestGetPictureActivity extends BaseActivity {
         return R.layout.activity_test_get_picture;
     }
 
-    @OnClick({R.id.btn_photo, R.id.btn_permissions})
+    @Override
+    protected void initView(View v) {
+        super.initView(v);
+        mBinding = ActivityTestGetPictureBinding.bind(v);
+        mBinding.btnPhoto.setOnClickListener(this::onClickView);
+        mBinding.btnPermissions.setOnClickListener(this::onClickView);
+    }
+
     public void onClickView(View v) {
         if (v.getId() == R.id.btn_permissions) {
             permissions();
@@ -98,7 +102,7 @@ public class TestGetPictureActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == mRequestCodeForImg) {
+        if (requestCode == mRequestCodeForImg && data != null) {
             List<String> list = Matisse.obtainPathResult(data);
             if (EmptyUtils.isNotEmpty(list)) {
                 Glide
@@ -106,7 +110,7 @@ public class TestGetPictureActivity extends BaseActivity {
                         .load(list.get(0))
                         .fitCenter()
                         .placeholder(R.mipmap.ic_launcher)
-                        .into(mIvImg);
+                        .into(mBinding.ivImg);
             }
         }
     }

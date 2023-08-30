@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.duxl.android.quicklib.databinding.ActivityTestRecyclerviewBinding;
 import com.duxl.android.quicklib.http.HttpService;
 import com.duxl.android.quicklib.http.Root;
 import com.duxl.baselib.http.BaseRecyclerViewHttpObserver;
@@ -14,13 +15,10 @@ import com.duxl.baselib.rx.LifecycleTransformer;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.ToastUtils;
 import com.duxl.baselib.widget.SimpleOnLoadListener;
-import com.duxl.baselib.widget.SmartRecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * TestRecyclerViewActivity
@@ -30,13 +28,13 @@ public class TestRecyclerViewActivity extends BaseActivity {
 
     private int pageNum = 1;
 
-    @BindView(R.id.smartRecyclerView)
-    SmartRecyclerView mSmartRecyclerView;
+
+    private ActivityTestRecyclerviewBinding mBinding;
 
     private BaseQuickAdapter<String, BaseViewHolder> mAdapter = new BaseQuickAdapter<String, BaseViewHolder>(android.R.layout.simple_list_item_1) {
         @Override
         protected void convert(@NotNull BaseViewHolder baseViewHolder, String s) {
-            baseViewHolder.setText(android.R.id.text1, "【" + baseViewHolder.getBindingAdapterPosition() + "】" + s);
+            baseViewHolder.setText(android.R.id.text1, "【" + getItemPosition(s) + "】" + s);
         }
     };
 
@@ -48,16 +46,17 @@ public class TestRecyclerViewActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         setTitle("测试RecylcerView分页加载数据");
+        mBinding = ActivityTestRecyclerviewBinding.bind(v);
         getActionBarView().setBarBackgroundColor(Color.GREEN);
         getActionBarView().setTitleColor(Color.WHITE);
         getStateBar().setBackgroundColor(Color.GREEN);
         setStateBarLightMode();
-        mSmartRecyclerView.getStatusView().setErrorText("怎么又出错啦");
+        mBinding.smartRecyclerView.getStatusView().setErrorText("怎么又出错啦");
 
-        mSmartRecyclerView.getContentView().setAdapter(mAdapter);
-        mSmartRecyclerView.getStatusView().showEmpty();
+        mBinding.smartRecyclerView.getContentView().setAdapter(mAdapter);
+        mBinding.smartRecyclerView.getStatusView().showEmpty();
 
-        mSmartRecyclerView.setOnLoadListener(new SimpleOnLoadListener() {
+        mBinding.smartRecyclerView.setOnLoadListener(new SimpleOnLoadListener() {
             @Override
             public void onRefresh() {
                 ToastUtils.show("下拉刷新");
@@ -81,7 +80,7 @@ public class TestRecyclerViewActivity extends BaseActivity {
             public void onEmptyClick() {
                 ToastUtils.show("onEmptyClick");
                 loadData();
-                mSmartRecyclerView.getStatusView().showContent();
+                mBinding.smartRecyclerView.getStatusView().showContent();
             }
         });
     }
@@ -95,7 +94,7 @@ public class TestRecyclerViewActivity extends BaseActivity {
                 // 如果刷新和状态view都是页面，这里可以传Activity.this作为参数，第一个参数adapter是必须的，后面两个是可选的
                 // 普通接口可以用 BaseHttpObserver
                 //.subscribe(new RVHttpObserver<Root<List<String>>, String>(mAdapter, this, this) {
-                .subscribe(new BaseRecyclerViewHttpObserver<Root<List<String>>, String>(mAdapter, mSmartRecyclerView, mSmartRecyclerView) {
+                .subscribe(new BaseRecyclerViewHttpObserver<Root<List<String>>, String>(mAdapter, mBinding.smartRecyclerView, mBinding.smartRecyclerView) {
                     @Override
                     public List<String> getListData(Root<List<String>> root) {
                         return root.data;

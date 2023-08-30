@@ -6,19 +6,20 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.duxl.android.quicklib.databinding.ActivityCustomActionBarBinding;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.ToastUtils;
 import com.duxl.baselib.widget.SimpleOnLoadListener;
 
 import java.util.Random;
 
-import butterknife.OnClick;
-
 /**
  * TestActivityActivity
  * create by duxl 2020/8/15
  */
 public class TestActivityActivity extends BaseActivity {
+
+    private ActivityCustomActionBarBinding mBinding;
 
     private boolean mStatusDark = true;
 
@@ -78,7 +79,19 @@ public class TestActivityActivity extends BaseActivity {
         return R.layout.activity_custom_action_bar;
     }
 
-    @OnClick({R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7})
+    @Override
+    protected void initView(View v) {
+        super.initView(v);
+        mBinding = ActivityCustomActionBarBinding.bind(v);
+        mBinding.button1.setOnClickListener(this::onClickView);
+        mBinding.button2.setOnClickListener(this::onClickView);
+        mBinding.button3.setOnClickListener(this::onClickView);
+        mBinding.button4.setOnClickListener(this::onClickView);
+        mBinding.button5.setOnClickListener(this::onClickView);
+        mBinding.button6.setOnClickListener(this::onClickView);
+        mBinding.button7.setOnClickListener(this::onClickView);
+    }
+
     public void onClickView(View v) {
         if (v.getId() == R.id.button1) {
             setTitle("设置一个很长的标题，这个标题确实很长，会怎么样显示呢");

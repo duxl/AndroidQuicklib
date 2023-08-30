@@ -1,14 +1,13 @@
 package com.duxl.android.quicklib;
 
 import android.view.View;
-import android.widget.TextView;
 
+import com.duxl.android.quicklib.databinding.ActivityTestRxBinding;
 import com.duxl.baselib.rx.LifecycleTransformer;
 import com.duxl.baselib.ui.activity.BaseActivity;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
@@ -21,8 +20,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
  */
 public class TestRxActivity extends BaseActivity {
 
-    @BindView(R.id.tv_text)
-    TextView mTvText;
+    private ActivityTestRxBinding mBinding;
 
     @Override
     protected int getLayoutResId() {
@@ -32,6 +30,7 @@ public class TestRxActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         setTitle("TestRxActivity");
+        mBinding = ActivityTestRxBinding.bind(v);
 
         Observable
                 .interval(500, TimeUnit.MILLISECONDS)
@@ -46,7 +45,7 @@ public class TestRxActivity extends BaseActivity {
 
                     @Override
                     public void onNext(@NonNull Long aLong) {
-                        mTvText.setText(String.valueOf(aLong));
+                        mBinding.tvText.setText(String.valueOf(aLong));
                     }
 
                     @Override
