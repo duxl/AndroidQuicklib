@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.duxl.baselib.ui.adapter.BaseExpandableAdapter;
 import com.duxl.baselib.utils.ToastUtils;
 
@@ -69,7 +68,9 @@ public class TestExpand3ListActivity extends TestExpandListActivity {
                 cityListAdapter.setOnItemClickListener((adapter, view, position) -> {
                     AreaItem clickCity = cityListAdapter.getItem(position);
                     clickCity._isExpand = !clickCity._isExpand;
-                    cityListAdapter.notifyItemChanged(position);
+                    //cityListAdapter.notifyItemChanged(position);
+                    // 三级展开对应的二级其实也变化了，所以这里notify父级
+                    provinceAdapter.notifyItemChanged(positionProvince);
                 });
 
                 // 设置地区点击事件
