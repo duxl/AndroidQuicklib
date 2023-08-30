@@ -32,6 +32,7 @@ public class TestTriangleDrawableActivity extends BaseActivity {
 
     private int currentFillColor = Color.RED;
     private boolean inside = true;
+    private MaterialUtils.Orientation orientation = MaterialUtils.Orientation.BOTTOM;
 
 
     @Override
@@ -101,13 +102,31 @@ public class TestTriangleDrawableActivity extends BaseActivity {
             resetBg();
         });
 
+        // 方向-上下左右
+        v.<RadioGroup>findViewById(R.id.group_orientation).setOnCheckedChangeListener((group, checkedId) -> {
+            for (int i = 0; i < group.getChildCount(); i++) {
+                if (group.getChildAt(i).getId() == checkedId) {
+                    String index = group.getChildAt(i).getTag().toString();
+                    System.out.println("index=====" + index);
+                    orientation = MaterialUtils.Orientation.values()[Integer.valueOf(group.getChildAt(i).getTag().toString())];
+                    resetBg();
+                    break;
+                }
+            }
+        });
+
         resetBg();
     }
 
     private void resetBg() {
-        float triangleOffsetPx = -ivImg.getWidth() / 2 + currentTriangleOffset / 100f * ivImg.getWidth();
+        float triangleOffsetPx;
+        if(orientation == MaterialUtils.Orientation.TOP || orientation == MaterialUtils.Orientation.BOTTOM) {
+            triangleOffsetPx = -ivImg.getWidth() / 2 + currentTriangleOffset / 100f * ivImg.getWidth();
+        } else {
+            triangleOffsetPx = -ivImg.getHeight() / 2 + currentTriangleOffset / 100f * ivImg.getHeight();
+        }
         float cornerSizesPx = ivImg.getHeight() / 2f * currentCornerSizes / 100f;
-        ivImg.setBackground(MaterialUtils.getTriangleDrawable(currentFillColor, currentTriangleSizes, (int) triangleOffsetPx, cornerSizesPx, inside));
+        ivImg.setBackground(MaterialUtils.getTriangleDrawable(currentFillColor, currentTriangleSizes, (int) triangleOffsetPx, cornerSizesPx, inside, orientation));
     }
 
     private static class SimpleOnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {

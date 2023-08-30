@@ -84,7 +84,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="fillColor" />
 
@@ -133,7 +133,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="inside" />
 
@@ -160,6 +160,61 @@
                 android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="out" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="orientation" />
+
+        <RadioGroup
+            android:id="@+id/group_orientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:tag="0"
+                android:text="left" />
+
+
+            <RadioButton
+                android:id="@+id/radio_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:tag="1"
+                android:text="top" />
+
+            <RadioButton
+                android:id="@+id/radio_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:tag="2"
+                android:text="right" />
+
+            <RadioButton
+                android:id="@+id/radio_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingVertical="10dp"
+                android:tag="3"
+                android:text="bottom" />
         </RadioGroup>
 
 
