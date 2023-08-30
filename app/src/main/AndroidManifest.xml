@@ -168,6 +168,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestTimelineDecorationActivity"
+            android:label="decoration/时间线装饰器">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
