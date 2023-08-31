@@ -1,17 +1,13 @@
 package com.duxl.android.quicklib;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.duxl.android.quicklib.adapter.SimpleAdapter;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.DisplayUtil;
 import com.duxl.baselib.widget.decoration.TimelineDecoration;
@@ -34,27 +30,7 @@ public class TestTimelineDecorationActivity extends BaseActivity {
         super.initView(v);
         setTitle("时间线装饰器");
         mRecyclerView = v.findViewById(R.id.recyclerview);
-        mRecyclerView.setAdapter(new RecyclerView.Adapter() {
-            @NonNull
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(TestTimelineDecorationActivity.this).inflate(android.R.layout.simple_list_item_1, parent, false);
-                return new RecyclerView.ViewHolder(view) {
-                };
-            }
-
-            @Override
-            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-                TextView tv = holder.itemView.findViewById(android.R.id.text1);
-                tv.setText("Position" + position);
-                tv.setBackgroundColor(Color.parseColor(position % 2 == 0 ? "#EEEEEE" : "#DDDDDD"));
-            }
-
-            @Override
-            public int getItemCount() {
-                return mListCount;
-            }
-        });
+        mRecyclerView.setAdapter(new SimpleAdapter(mListCount));
     }
 
     private void removeAll() {

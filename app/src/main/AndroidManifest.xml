@@ -176,6 +176,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestFollowBehaviorActivity"
+            android:label="behavior/跟随Behavior">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

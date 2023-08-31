@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestFollowBehaviorActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="100dp"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#FF0"
+            android:gravity="center"
+            android:text="AppBarLayout\n我是锚点"
+            android:textSize="30sp"
+            app:layout_scrollFlags="scroll" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="Left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Left"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:background="#80FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="AlignLeft">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="AlignLeft"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="Top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Top"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="#80FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="AlignTop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="AlignTop"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="Right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Right"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:background="#80FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="AlignRight">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="AlignRight"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="#80FF0000"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="AlignBottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="AlignBottom"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+    <com.duxl.baselib.widget.CoordinatorFollowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#800000FF"
+        app:follow_anchor="@id/appbar_layout"
+        app:follow_center="true"
+        app:follow_gravity="Bottom">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="Bottom"
+            android:textColor="#FFF" />
+    </com.duxl.baselib.widget.CoordinatorFollowLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
