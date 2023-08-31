@@ -20,6 +20,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_del"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="-减慢"/>
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="+加快"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

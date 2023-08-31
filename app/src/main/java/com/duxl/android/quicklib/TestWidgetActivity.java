@@ -16,6 +16,7 @@ public class TestWidgetActivity extends BaseActivity {
     private ActivityTestWidgetBinding mBinding;
 
     private int count;
+    private int duration = 1000;
 
     @Override
     protected int getLayoutResId() {
@@ -28,10 +29,22 @@ public class TestWidgetActivity extends BaseActivity {
         setTitle("自定义控件示例");
         mBinding = ActivityTestWidgetBinding.bind(v);
 
-        mBinding.tvHeartbeat.setInterval(1, TimeUnit.SECONDS); // 设置心跳间隔1秒
+        mBinding.tvHeartbeat.setInterval(duration, TimeUnit.MILLISECONDS); // 设置心跳间隔1秒
         mBinding.tvHeartbeat.setOnHeartbeatListener(v1 -> {
             count++;
-            mBinding.tvHeartbeat.setText("心跳TextView: " + count);
+            mBinding.tvHeartbeat.setText("心跳TextView:间隔= " + duration + "毫秒, count=" + count);
+        });
+
+        mBinding.btnDel.setOnClickListener(btnDel -> {
+            duration += 50;
+            mBinding.tvHeartbeat.setInterval(duration, TimeUnit.MILLISECONDS);
+        });
+
+        mBinding.btnAdd.setOnClickListener(btnAdd -> {
+            if (duration > 0) {
+                duration -= 50;
+                mBinding.tvHeartbeat.setInterval(duration, TimeUnit.MILLISECONDS);
+            }
         });
     }
 }
