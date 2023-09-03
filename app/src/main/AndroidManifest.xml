@@ -178,6 +178,14 @@
         </activity>
 
         <activity
+            android:name=".TestStickyHeaderActivity"
+            android:label="decoration/黏性悬停分组">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestFollowBehaviorActivity"
             android:label="behavior/跟随Behavior">
             <intent-filter>
