@@ -111,4 +111,26 @@
         android:text="对其它文本控件的支持"
         android:textColor="#FFFFFF" />
 
+    <com.duxl.baselib.widget.JustifyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCC"
+        android:gravity="center_vertical"
+        android:text="垂直居中"
+        android:textSize="18sp"
+        app:jtv_enableJustify="true"
+        app:jtv_placeWidthText="垂直居中效果" />
+
+    <com.duxl.baselib.widget.JustifyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="#CCC"
+        android:gravity="bottom"
+        android:text="底部对齐"
+        android:textSize="18sp"
+        app:jtv_enableJustify="true"
+        app:jtv_placeWidthText="垂直居中效果" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
