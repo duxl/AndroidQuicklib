@@ -170,6 +170,14 @@
         </activity>
 
         <activity
+            android:name=".TestExpandXListActivity"
+            android:label="可折叠列表/可折叠的列表（任意多级）">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestTimelineDecorationActivity"
             android:label="decoration/时间线装饰器">
             <intent-filter>
