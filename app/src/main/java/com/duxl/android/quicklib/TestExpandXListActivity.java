@@ -53,10 +53,10 @@ public class TestExpandXListActivity extends BaseActivity {
         for (int k = 0; k < 5; k++) {
             // 添加孙子级
             // 在第二层数据的第一个添加第三层数据
-            TreeItem grandson1 = new TreeItem("孙级2-1-" + k);
+            TreeItem grandson1 = new TreeItem("孙级1-0-" + k);
             list.get(1).children.get(0).children.add(grandson1);
             // 在第二层数据的第二个添加第三层数据
-            TreeItem grandson2 = new TreeItem("孙级2-2-" + k);
+            TreeItem grandson2 = new TreeItem("孙级1-1-" + k);
             list.get(1).children.get(1).children.add(grandson2);
         }
 
