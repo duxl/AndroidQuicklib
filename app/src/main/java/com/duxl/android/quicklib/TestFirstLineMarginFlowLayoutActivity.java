@@ -17,7 +17,7 @@ public class TestFirstLineMarginFlowLayoutActivity extends BaseActivity {
 
     private FirstLineMarginFlowLayout mMarginFlowLayout1;
     private FirstLineMarginFlowLayout mMarginFlowLayout2;
-    private String[] items = {"首行左右间距示例", "First", "Margin", "FlowLayout", "自定义View", "测量大小", "布局child的位置"};
+    private String[] items = {"内容很长导致崩溃1234567890abcdefghijklmn1234567890abcdefghijklmnOver","首行左右间距示例", "First", "Margin", "FlowLayout", "自定义View", "测量大小", "布局child的位置"};
 
     @Override
     protected int getLayoutResId() {
