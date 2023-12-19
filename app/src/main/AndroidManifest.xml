@@ -130,6 +130,14 @@
         </activity>
 
         <activity
+            android:name=".TestLockedTableActivity"
+            android:label="自定义控件/可锁定列的表格">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestLayerLayoutActivity"
             android:label="自定义控件/叠放Layer布局">
             <intent-filter>

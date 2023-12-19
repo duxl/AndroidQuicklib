@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#CCC"
+    android:paddingVertical="4dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="姓名" />
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="性别" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="年龄" />
+
+    <TextView
+        android:id="@+id/tv_height"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="身高" />
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="体重" />
+
+    <TextView
+        android:id="@+id/tv_ethnic"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="民族" />
+
+
+    <TextView
+        android:id="@+id/tv_hobby"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="兴趣爱好" />
+
+    <TextView
+        android:id="@+id/tv_company"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="公司" />
+
+</LinearLayout>

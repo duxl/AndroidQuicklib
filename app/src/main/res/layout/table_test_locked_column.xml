@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#CCC">
+
+    <TextView
+        android:id="@+id/tv_no"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp"
+        android:text="编号" />
+
+</LinearLayout>
