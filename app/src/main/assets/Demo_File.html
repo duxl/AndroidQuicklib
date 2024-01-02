@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <title>HTML测试</title>
+
+        <script>
+            function onLoad() {
+                app.setStateBarVisible(true);
+                app.setTitleBarVisible(true);
+                app.setTitleText("Html测试");
+            }
+
+            function previewImage(inputId) {
+                var preview = document.getElementById("preview");
+                // 获取上传的文件
+                var file = document.getElementById(inputId).files[0];
+                var reader = new FileReader();
+                reader.addEventListener("load", function(){
+                    preview.src = reader.result;
+                });
+                if(file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+    </head>
+    <body onload="onLoad()">
+        拍照：<input id="file1" type="file" title="拍照" capture="camera" onchange="previewImage('file1')" /><br/><br/>
+        选图片(单选)：<input id="file2" type="file" title="选图片" accept="image/*" onchange="previewImage('file2')" /><br/><br/>
+        选pdf(多选)：<input id="file3" type="file" multiple="multiple" title="选pdf" accept="application/pdf" /><br/>
+        <hr/>
+        <img id="preview" style="width:100%" />
+    </body>
+</html>
