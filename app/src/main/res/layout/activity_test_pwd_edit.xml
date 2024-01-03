@@ -19,7 +19,7 @@
         android:inputType="numberDecimal"
         android:text="123"
         android:textSize="34sp"
-        app:backColor="#CCC"
+        app:defaultBackColor="#CCC"
         app:checkedBorderColor="#0F0"
         app:defaultBorderColor="#999"
         app:inputBorderColor="#00F"
@@ -28,7 +28,7 @@
         app:round="6dp"
         app:space="10dp"
         app:strokeWidth="1dp"
-        app:textColor="#0F0"
+        app:contentColor="#0F0"
         app:waitInputColor="#00F" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:inputType="numberDecimal"
         android:text="123"
         android:textSize="34sp"
-        app:backColor="#CCC"
+        app:defaultBackColor="#CCC"
         app:checkedBorderColor="#0F0"
         app:defaultBorderColor="#999"
         app:inputBorderColor="#00F"
@@ -53,7 +53,7 @@
         app:round="6dp"
         app:space="10dp"
         app:strokeWidth="1dp"
-        app:textColor="#0F0"
+        app:contentColor="#0F0"
         app:waitInputColor="#00F" />
 
     <TextView
@@ -72,7 +72,7 @@
         app:isPwd="false"
         app:isWaitInput="true"
         app:space="10dp"
-        app:textColor="#00F"
+        app:contentColor="#00F"
         app:waitInputColor="#00F" />
 
 
