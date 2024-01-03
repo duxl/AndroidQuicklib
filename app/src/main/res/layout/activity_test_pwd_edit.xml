@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过颜色属性设置" />
+
+    <com.duxl.baselib.widget.PwdEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="numberDecimal"
+        android:text="123"
+        android:textSize="34sp"
+        app:backColor="#CCC"
+        app:checkedBorderColor="#0F0"
+        app:defaultBorderColor="#999"
+        app:inputBorderColor="#00F"
+        app:isPwd="false"
+        app:isWaitInput="true"
+        app:round="6dp"
+        app:space="10dp"
+        app:strokeWidth="1dp"
+        app:textColor="#0F0"
+        app:waitInputColor="#00F" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="圆点样式" />
+
+    <com.duxl.baselib.widget.PwdEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="numberDecimal"
+        android:text="123"
+        android:textSize="34sp"
+        app:backColor="#CCC"
+        app:checkedBorderColor="#0F0"
+        app:defaultBorderColor="#999"
+        app:inputBorderColor="#00F"
+        app:isPwd="true"
+        app:isWaitInput="true"
+        app:round="6dp"
+        app:space="10dp"
+        app:strokeWidth="1dp"
+        app:textColor="#0F0"
+        app:waitInputColor="#00F" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="背景设置drawable" />
+
+    <com.duxl.baselib.widget.PwdEditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:defaultBackDrawable="@drawable/input_box_bg"
+        app:isPwd="false"
+        app:isWaitInput="true"
+        app:space="10dp"
+        app:textColor="#00F"
+        app:waitInputColor="#00F" />
+
+
+</LinearLayout>
