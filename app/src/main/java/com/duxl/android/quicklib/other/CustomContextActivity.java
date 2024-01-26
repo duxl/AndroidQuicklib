@@ -27,9 +27,11 @@ public class CustomContextActivity extends BaseActivity {
         setTitle("自定义Context上下文");
     }
 
-    private void showToast(Context customContext, View v) {
+    private void showToast(Context customContext) {
         Toast toast = new Toast(customContext);
-        toast.setView(v);
+        // 使用自定义上下文Context加载资源
+        View view = LayoutInflater.from(customContext).inflate(R.layout.layout_test_custom_context, null, false);
+        toast.setView(view);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
     }
@@ -40,13 +42,11 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showDayToast(View v) {
-        Configuration configuration = getResources().getConfiguration();
+        Configuration configuration = new Configuration();
         configuration.uiMode &= ~Configuration.UI_MODE_NIGHT_MASK;
         configuration.uiMode |= Configuration.UI_MODE_NIGHT_NO;
         Context customContext = getContext().createConfigurationContext(configuration);
-
-        View view = LayoutInflater.from(customContext).inflate(R.layout.layout_test_custom_context, null, false);
-        showToast(customContext, view);
+        showToast(customContext);
     }
 
     /**
@@ -55,13 +55,11 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showNightToast(View v) {
-        Configuration configuration = getResources().getConfiguration();
+        Configuration configuration = new Configuration();
         configuration.uiMode &= ~Configuration.UI_MODE_NIGHT_MASK;
         configuration.uiMode |= Configuration.UI_MODE_NIGHT_YES;
         Context customContext = getContext().createConfigurationContext(configuration);
-
-        View view = LayoutInflater.from(customContext).inflate(R.layout.layout_test_custom_context, null, false);
-        showToast(customContext, view);
+        showToast(customContext);
     }
 
     /**
@@ -70,12 +68,10 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showChineseToast(View v) {
-        Configuration configuration = getResources().getConfiguration();
+        Configuration configuration = new Configuration();
         // 默认string.xml资源就是中文，这里不需要设置
         Context customContext = getContext().createConfigurationContext(configuration);
-
-        View view = LayoutInflater.from(customContext).inflate(R.layout.layout_test_custom_context, null, false);
-        showToast(customContext, view);
+        showToast(customContext);
     }
 
     /**
@@ -84,11 +80,9 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showEnglishToast(View v) {
-        Configuration configuration = getResources().getConfiguration();
+        Configuration configuration = new Configuration();
         configuration.locale = Locale.ENGLISH;
         Context customContext = getContext().createConfigurationContext(configuration);
-
-        View view = LayoutInflater.from(customContext).inflate(R.layout.layout_test_custom_context, null, false);
-        showToast(customContext, view);
+        showToast(customContext);
     }
 }
