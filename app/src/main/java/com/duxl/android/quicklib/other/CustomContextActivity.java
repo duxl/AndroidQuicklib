@@ -42,7 +42,7 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showDayToast(View v) {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration(getResources().getConfiguration());
         configuration.uiMode &= ~Configuration.UI_MODE_NIGHT_MASK;
         configuration.uiMode |= Configuration.UI_MODE_NIGHT_NO;
         Context customContext = getContext().createConfigurationContext(configuration);
@@ -55,7 +55,7 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showNightToast(View v) {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration(getResources().getConfiguration());
         configuration.uiMode &= ~Configuration.UI_MODE_NIGHT_MASK;
         configuration.uiMode |= Configuration.UI_MODE_NIGHT_YES;
         Context customContext = getContext().createConfigurationContext(configuration);
@@ -68,7 +68,7 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showChineseToast(View v) {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration(getResources().getConfiguration());
         // 默认string.xml资源就是中文，这里不需要设置
         Context customContext = getContext().createConfigurationContext(configuration);
         showToast(customContext);
@@ -80,7 +80,7 @@ public class CustomContextActivity extends BaseActivity {
      * @param v
      */
     public void showEnglishToast(View v) {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration(getResources().getConfiguration());
         configuration.locale = Locale.ENGLISH;
         Context customContext = getContext().createConfigurationContext(configuration);
         showToast(customContext);
