@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaseLibDemo</string>
+    <string name="test_custom_text">测试自定义context</string>
 </resources>

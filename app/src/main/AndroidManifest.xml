@@ -224,6 +224,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".other.CustomContextActivity"
+            android:label="其它/自定义上下文">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
