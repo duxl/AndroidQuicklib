@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.duxl.baselib.widget.segmented.SegmentedControlView
+        android:id="@+id/scv"
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true"
+        app:segBackgroundColor="#CCC"
+        app:segCornersMode="Round"
+        app:segCornersRadius="8dp"
+        app:segItemPadding="16dp"
+        app:segSelectedItem="0"
+        app:segSelectedItemBackgroundColor="#0000FF"
+        app:segSelectedItemTextColor="#FFFFFF"
+        app:segSelectedTextSize="24sp"
+        app:segTextColor="#52525B"
+        app:segTextSize="16sp" />
+
+</LinearLayout>

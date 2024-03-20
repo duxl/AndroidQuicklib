@@ -162,6 +162,14 @@
         </activity>
 
         <activity
+            android:name=".TestSegmentedActivity"
+            android:label="自定义控件/滑块Tab">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestShadowDrawableActivity"
             android:label="Material/带阴影的图片">
             <intent-filter>
