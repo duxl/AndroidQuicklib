@@ -155,7 +155,7 @@ public class TestTimelineDecorationActivity extends BaseActivity {
                 paint.setColor(Color.BLUE);
                 paint.setTextAlign(Paint.Align.CENTER);
                 Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-                int baseLine = (int)(child.getTop() - fontMetrics.top + (child.getHeight() - (fontMetrics.bottom - fontMetrics.top)) / 2);
+                int baseLine = (int) (child.getTop() - fontMetrics.top + (child.getHeight() - (fontMetrics.bottom - fontMetrics.top)) / 2);
                 canvas.drawText(String.valueOf(position), startX, baseLine, paint);
             }
         }) {
@@ -165,6 +165,50 @@ public class TestTimelineDecorationActivity extends BaseActivity {
                 outRect.right = outRight;
             }
         };
+
+        mRecyclerView.addItemDecoration(timelineDecoration);
+    }
+
+    // 完全自定义2
+    public void onClickCustomAll2(View v) {
+        mRecyclerView.setAdapter(new SimpleAdapter(3));
+        removeAll();
+        int outLeft = DisplayUtil.dip2px(this, 40);
+        TimelineDecoration timelineDecoration = new TimelineDecoration(this, outLeft, new TimelineDecoration.DrawCallback() {
+
+            @Override
+            public void beforeDrawItem(@NonNull Canvas canvas, @NonNull Paint paint, @NonNull RecyclerView parent) {
+                paint.reset();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setStrokeWidth(4);
+                paint.setColor(Color.GREEN);
+
+                View firstView = parent.getChildAt(0);
+                int firstPosition = parent.getChildAdapterPosition(firstView);
+                int centerX = outLeft / 2;
+                int startY = firstView.getTop();
+                if (firstPosition == 0) {
+                    startY = firstView.getHeight() / 2;
+                }
+
+                int endY = parent.getHeight();
+                canvas.drawLine(centerX, startY, centerX, endY, paint);
+            }
+
+            @Override
+            public void drawItem(@NonNull Canvas canvas, @NonNull Paint paint, @NonNull RecyclerView parent, @NonNull View child, int position) {
+                paint.reset();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL);
+                paint.setColor(Color.BLUE);
+
+                int radius = DisplayUtil.dip2px(TestTimelineDecorationActivity.this, 10);
+                int centerX = outLeft / 2;
+                int centerY = child.getTop() + child.getHeight() / 2;
+                canvas.drawCircle(centerX, centerY, radius, paint);
+            }
+        });
 
         mRecyclerView.addItemDecoration(timelineDecoration);
     }

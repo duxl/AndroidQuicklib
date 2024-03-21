@@ -43,6 +43,12 @@
         android:onClick="onClickCustomAll"
         android:text="完全自定义" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCustomAll2"
+        android:text="完全自定义2" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
