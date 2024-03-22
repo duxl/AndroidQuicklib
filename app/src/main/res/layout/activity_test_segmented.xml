@@ -17,7 +17,7 @@
         app:segCornersRadius="8dp"
         app:segItemPadding="16dp"
         app:segSelectedItem="0"
-        app:segSelectedItemBackgroundColor="#0000FF"
+        app:segSelectedItemBackgroundColor="#800000FF"
         app:segSelectedItemTextColor="#FFFFFF"
         app:segSelectedTextSize="24sp"
         app:segTextColor="#52525B"
