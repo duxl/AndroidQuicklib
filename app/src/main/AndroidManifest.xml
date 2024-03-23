@@ -176,6 +176,13 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TestShadowActivity"
+            android:label="Material/常规阴影实现">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".TestTriangleDrawableActivity"

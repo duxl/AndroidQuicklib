@@ -12,7 +12,7 @@ import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.MaterialUtils;
 
 /**
- * 测试阴影
+ * 测试带阴影的图片
  */
 public class TestShadowDrawableActivity extends BaseActivity {
 
@@ -37,7 +37,7 @@ public class TestShadowDrawableActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         super.initView(v);
-        setTitle("测试阴影");
+        setTitle("测试带阴影的图片");
         ivImg = v.findViewById(R.id.iv_img);
 
         // 阴影高度

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:background="#FFFFFF"
+            android:elevation="10dp"
+            android:layout_marginTop="10dp"
+            android:outlineSpotShadowColor="#00F">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="通过提高Z轴实现阴影\n需要设置背景\noutlineSpotShadowColor=阴影颜色" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:background="@drawable/layer_shadow"
+            android:layout_marginTop="30dp"
+            android:layout_height="100dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="使用layer-list实现" />
+        </FrameLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
