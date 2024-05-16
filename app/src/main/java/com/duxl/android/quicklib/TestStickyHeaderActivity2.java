@@ -1,15 +1,16 @@
 package com.duxl.android.quicklib;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duxl.android.quicklib.databinding.ActivityTestStickyHeaderBinding;
-import com.duxl.android.quicklib.databinding.AdapterStickyHeaderItemBinding;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.ToastUtils;
 import com.duxl.baselib.widget.decoration.StickyHeaderDecoration;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * 测试黏性悬停header
  */
-public class TestStickyHeaderActivity extends BaseActivity {
+public class TestStickyHeaderActivity2 extends BaseActivity {
 
     private ActivityTestStickyHeaderBinding mBinding;
 
@@ -35,8 +36,9 @@ public class TestStickyHeaderActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         super.initView(v);
-        setTitle("黏性悬停分组-List");
+        setTitle("黏性悬停分组-Grid");
         mBinding = ActivityTestStickyHeaderBinding.bind(v);
+        mBinding.recyclerview.setLayoutManager(new GridLayoutManager(this, 3));
         mBinding.recyclerview.setAdapter(mAdapter = new Adapter(mListData));
 
         mBinding.recyclerview.addItemDecoration(new StickyHeaderDecoration(mBinding.recyclerview) {
@@ -50,7 +52,20 @@ public class TestStickyHeaderActivity extends BaseActivity {
 
             @Override
             public boolean isHeader(int position) {
+                System.out.println("isHeader: " + position);
                 return mListData.get(position).isHeader;
+            }
+        });
+
+        GridLayoutManager layoutManager = (GridLayoutManager) mBinding.recyclerview.getLayoutManager();
+        assert layoutManager != null;
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (mListData.get(position).isHeader) {
+                    return 3;
+                }
+                return 1;
             }
         });
     }
@@ -121,17 +136,22 @@ public class TestStickyHeaderActivity extends BaseActivity {
             if (item.isHeader) {
                 bindHeader(holder.itemView, item);
             } else {
+                int[] colors = new int[2];
+                colors[0] = Color.parseColor("#33CCCCCC");
+                colors[1] = Color.parseColor("#33000000");
+
+                holder.itemView.setBackgroundColor(colors[position % colors.length]);
                 TextView tv = holder.itemView.findViewById(R.id.tv_text);
                 tv.setText(item.context);
-                holder.itemView.setOnClickListener(v->ToastUtils.show("点击了" + item.context));
+                holder.itemView.setOnClickListener(v -> ToastUtils.show("点击了" + item.context));
             }
         }
 
         public void bindHeader(View header, Item item) {
             TextView tv = header.findViewById(R.id.tv_text);
             tv.setText(item.header);
-            header.setOnClickListener(v-> ToastUtils.show("点击了分组"));
-            header.findViewById(R.id.v_del).setOnClickListener(vDel->ToastUtils.show("点击了删除"));
+            header.setOnClickListener(v -> ToastUtils.show("点击了分组"));
+            header.findViewById(R.id.v_del).setOnClickListener(vDel -> ToastUtils.show("点击了删除"));
         }
 
         @Override
