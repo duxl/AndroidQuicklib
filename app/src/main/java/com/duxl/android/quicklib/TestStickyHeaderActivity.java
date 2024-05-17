@@ -1,8 +1,10 @@
 package com.duxl.android.quicklib;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,10 +24,11 @@ import java.util.List;
  */
 public class TestStickyHeaderActivity extends BaseActivity {
 
-    private ActivityTestStickyHeaderBinding mBinding;
+    protected ActivityTestStickyHeaderBinding mBinding;
 
-    private List<Item> mListData = getListData();
-    private Adapter mAdapter;
+    protected List<Item> mListData = getListData();
+    protected Adapter mAdapter;
+    protected StickyHeaderDecoration mStickyHeaderDecoration;
 
     @Override
     protected int getLayoutResId() {
@@ -38,8 +41,15 @@ public class TestStickyHeaderActivity extends BaseActivity {
         setTitle("黏性悬停分组-List");
         mBinding = ActivityTestStickyHeaderBinding.bind(v);
         mBinding.recyclerview.setAdapter(mAdapter = new Adapter(mListData));
+        mBinding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.radio_push) {
+                mStickyHeaderDecoration.setStickyMode(StickyHeaderDecoration.StickyMode.PUSH);
+            } else {
+                mStickyHeaderDecoration.setStickyMode(StickyHeaderDecoration.StickyMode.COVER);
+            }
+        });
 
-        mBinding.recyclerview.addItemDecoration(new StickyHeaderDecoration(mBinding.recyclerview) {
+        mBinding.recyclerview.addItemDecoration(mStickyHeaderDecoration = new StickyHeaderDecoration(mBinding.recyclerview) {
             @Override
             public View getHeaderView(int position) {
                 // 这里使用Adapter创建相同的header(目的是得到相同的header视图)
@@ -55,7 +65,7 @@ public class TestStickyHeaderActivity extends BaseActivity {
         });
     }
 
-    public List<Item> getListData() {
+    protected List<Item> getListData() {
         List<Item> listData = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             String title = "Group:" + i;
@@ -67,7 +77,7 @@ public class TestStickyHeaderActivity extends BaseActivity {
         return listData;
     }
 
-    private static class Item {
+    public static class Item {
         public boolean isHeader;
         public String header;
         public String context;
@@ -79,7 +89,7 @@ public class TestStickyHeaderActivity extends BaseActivity {
         }
     }
 
-    private static class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    protected static class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private List<Item> mListData;
 
@@ -121,17 +131,22 @@ public class TestStickyHeaderActivity extends BaseActivity {
             if (item.isHeader) {
                 bindHeader(holder.itemView, item);
             } else {
+                int[] colors = new int[2];
+                colors[0] = Color.parseColor("#33CCCCCC");
+                colors[1] = Color.parseColor("#33000000");
+                holder.itemView.setBackgroundColor(colors[position % colors.length]);
+
                 TextView tv = holder.itemView.findViewById(R.id.tv_text);
                 tv.setText(item.context);
-                holder.itemView.setOnClickListener(v->ToastUtils.show("点击了" + item.context));
+                holder.itemView.setOnClickListener(v -> ToastUtils.show("点击了" + item.context));
             }
         }
 
         public void bindHeader(View header, Item item) {
             TextView tv = header.findViewById(R.id.tv_text);
             tv.setText(item.header);
-            header.setOnClickListener(v-> ToastUtils.show("点击了分组"));
-            header.findViewById(R.id.v_del).setOnClickListener(vDel->ToastUtils.show("点击了删除"));
+            header.setOnClickListener(v -> ToastUtils.show("点击了分组:" + item.header));
+            header.findViewById(R.id.v_del).setOnClickListener(vDel -> ToastUtils.show("点击了删除:" + item.header));
         }
 
         @Override

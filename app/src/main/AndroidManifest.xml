@@ -226,14 +226,14 @@
 
         <activity
             android:name=".TestStickyHeaderActivity"
-            android:label="decoration/黏性悬停分组/List">
+            android:label="decoration/黏性悬停分组-List">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
         <activity
             android:name=".TestStickyHeaderActivity2"
-            android:label="decoration/黏性悬停分组/Grid">
+            android:label="decoration/黏性悬停分组-Grid">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
