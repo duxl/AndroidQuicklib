@@ -262,6 +262,14 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".other.TestCustomDurationScrollerActivity"
+            android:label="其它/设置ViewPager的切换滚动时长">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
