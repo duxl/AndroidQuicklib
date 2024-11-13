@@ -37,6 +37,7 @@ public class TestRecyclerSnapHelperActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         super.initView(v);
+        setTitle("Recycler的Item居中方案示例");
         mBinding = ActivityTestRecyclerSnapHelperBinding.bind(v);
         test1();
 

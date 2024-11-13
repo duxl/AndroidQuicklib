@@ -193,8 +193,24 @@
         </activity>
 
         <activity
+            android:name=".TestRecyclerSnapHelperActivity"
+            android:label="RecyclerView/Item居中方案示例">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TestRecyclerDragActivity"
+            android:label="RecyclerView/拖拽">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".TestExpandListActivity"
-            android:label="可折叠列表/可折叠的列表（两级）">
+            android:label="RecyclerView/可折叠列表/可折叠的列表（两级）">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -202,7 +218,7 @@
 
         <activity
             android:name=".TestExpand3ListActivity"
-            android:label="可折叠列表/可折叠的列表（三级）">
+            android:label="RecyclerView/可折叠列表/可折叠的列表（三级）">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -210,7 +226,7 @@
 
         <activity
             android:name=".TestExpandXListActivity"
-            android:label="可折叠列表/可折叠的列表（任意多级）">
+            android:label="RecyclerView/可折叠列表/可折叠的列表（任意多级）">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -218,7 +234,7 @@
 
         <activity
             android:name=".TestTimelineDecorationActivity"
-            android:label="decoration/时间线装饰器">
+            android:label="RecyclerView/decoration/时间线装饰器">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -226,14 +242,14 @@
 
         <activity
             android:name=".TestStickyHeaderActivity"
-            android:label="decoration/黏性悬停分组-List">
+            android:label="RecyclerView/decoration/黏性悬停分组-List">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
         <activity
             android:name=".TestStickyHeaderActivity2"
-            android:label="decoration/黏性悬停分组-Grid">
+            android:label="RecyclerView/decoration/黏性悬停分组-Grid">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -266,14 +282,6 @@
         <activity
             android:name=".other.TestCustomDurationScrollerActivity"
             android:label="其它/设置ViewPager的切换滚动时长">
-            <intent-filter>
-                <action android:name="${pageAction}" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".TestRecyclerSnapHelperActivity"
-            android:label="Recycler的Item居中方案示例">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
