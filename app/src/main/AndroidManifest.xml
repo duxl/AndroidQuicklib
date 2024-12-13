@@ -242,14 +242,14 @@
 
         <activity
             android:name=".TestStickyHeaderActivity"
-            android:label="RecyclerView/decoration/黏性悬停分组-List">
+            android:label="RecyclerView/decoration/悬停分组/黏性悬停分组-List">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
         <activity
             android:name=".TestStickyHeaderActivity2"
-            android:label="RecyclerView/decoration/黏性悬停分组-Grid">
+            android:label="RecyclerView/decoration/悬停分组/黏性悬停分组-Grid">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
@@ -282,6 +282,14 @@
         <activity
             android:name=".other.TestCustomDurationScrollerActivity"
             android:label="其它/设置ViewPager的切换滚动时长">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".other.TestTextExpandActivity"
+            android:label="其它/文本太长折叠显示更多">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>
