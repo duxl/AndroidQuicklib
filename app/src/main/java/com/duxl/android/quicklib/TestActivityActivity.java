@@ -39,20 +39,20 @@ public class TestActivityActivity extends BaseActivity {
                 getActionBarView().postDelayed(() -> {
                     switch (new Random().nextInt(3)) {
                         case 0:
-                            setTitle("Demo:0");
+                            setTitle("Demo:showEmpty");
                             getStatusView().showEmpty();
                             break;
                         case 1:
-                            setTitle("Demo:1");
+                            setTitle("Demo:showContent");
                             getStatusView().showContent();
                             break;
                         case 2:
-                            setTitle("Demo:2");
+                            setTitle("Demo:showError");
                             getStatusView().showError(0);
                             break;
                     }
 
-                }, 2000);
+                }, 1000);
             }
 
             @Override

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="整个页面空状态" />
+
+        <Button
+            android:id="@+id/btn_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="整个页面loading状态" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_empty2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="部分页面空状态" />
+
+        <Button
+            android:id="@+id/btn_loading2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="部分页面loading状态" />
+
+        <Button
+            android:id="@+id/btn_content2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="部分页面content状态" />
+    </LinearLayout>
+
+    <com.duxl.baselib.ui.status.SimpleStatusView
+        android:id="@+id/simpleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:sv_empty_btn_visibility="visible"
+        app:sv_empty_button_text="隐藏"
+        app:sv_empty_img_res="@mipmap/ic_launcher_round"
+        app:sv_empty_img_visibility="visible"
+        app:sv_empty_text="瞧哈呐，上面都没有" />
+
+
+</LinearLayout>
