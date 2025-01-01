@@ -29,11 +29,11 @@ public class TestAppStatusViewActivity extends BaseActivity {
         binding.btnLoading.setOnClickListener(v1 -> {
             getStatusView().showLoading();
         });
-        getStatusView().setEmptyVisibility(0,0,0);
+        getStatusView().setEmptyVisibility(0, 0, 0);
         getStatusView().setEmptyText("整个页面empty状态");
         getStatusView().setEmptyBtnText("显示Content");
 
-        getStatusView().setLoadingVisibility(0,0,0);
+        getStatusView().setLoadingVisibility(0, 0, 0);
         getStatusView().setLoadingText("整个页面loading状态");
         getStatusView().setLoadingBtnText("显示Content");
         setOnLoadListener(new SimpleOnLoadListener() {
@@ -55,6 +55,13 @@ public class TestAppStatusViewActivity extends BaseActivity {
         binding.btnEmpty2.setOnClickListener(v1 -> binding.simpleStatusView.showEmpty());
         binding.btnLoading2.setOnClickListener(v1 -> binding.simpleStatusView.showLoading());
         binding.btnContent2.setOnClickListener(v1 -> binding.simpleStatusView.showContent());
+        binding.simpleStatusView.setOnLoadListener(new SimpleOnLoadListener() {
+            @Override
+            public void onEmptyClick() {
+                super.onEmptyClick();
+                binding.btnContent2.callOnClick();
+            }
+        });
 
     }
 }
