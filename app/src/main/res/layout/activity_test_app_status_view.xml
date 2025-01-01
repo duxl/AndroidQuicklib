@@ -53,6 +53,7 @@
         android:layout_height="match_parent"
         app:sv_empty_btn_visibility="visible"
         app:sv_empty_button_text="隐藏"
+        app:sv_status="Empty"
         app:sv_empty_img_res="@mipmap/ic_launcher_round"
         app:sv_empty_img_visibility="visible"
         app:sv_empty_text="瞧哈呢，什么都没有" />
