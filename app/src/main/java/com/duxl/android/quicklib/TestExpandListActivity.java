@@ -49,7 +49,7 @@ public class TestExpandListActivity extends BaseActivity {
         adapter.setOnItemClickListener((adapter1, view, position) -> {
             MonthItem item = adapter.getItem(position);
             item._isExpand = !item._isExpand;
-            adapter.notifyItemChanged(position);
+            adapter.notifyItemExpandChanged(position);
         });
 
         // 点击日期，toast打印
@@ -77,7 +77,7 @@ public class TestExpandListActivity extends BaseActivity {
                 dayCount = 30;
             }
             this.days = new ArrayList();
-            for (int i = 1; i <= dayCount; i++) {
+            for (int i = 1; i <= dayCount/10; i++) {
                 days.add(i + "日");
             }
         }

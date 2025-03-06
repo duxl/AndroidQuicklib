@@ -148,7 +148,8 @@ public class TestExpandXListActivity extends BaseActivity {
                 // 下面的示例逻辑是：点击item如果有子级就展开，没有就toast打印
                 if (EmptyUtils.isNotEmpty(item.getChildren())) {
                     item.isExpand = !item.isExpand;
-                    adapter.notifyItemChanged(position);
+                    AnimUtils.startRotationAnim(binding.ivTriangle, item.isExpand ? -90 : 0, item.isExpand ? 0 : -90);
+                    adapter.notifyItemChanged(position, BaseExpandableAdapter.PAYLOAD_EXPAND_CHANGED);
                 } else {
                     ToastUtils.show("层级=" + (level + 1) + ": " + item.text);
                 }
