@@ -2,12 +2,14 @@ package com.duxl.android.quicklib;
 
 import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duxl.baselib.ui.adapter.BaseExpandableAdapter;
+import com.duxl.baselib.utils.AnimUtils;
 import com.duxl.baselib.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -19,15 +21,25 @@ import java.util.List;
 public class TestExpand3ListActivity extends TestExpandListActivity {
 
     private BaseExpandableAdapter<AreaItem, AreaItem> provinceAdapter;
+
     @Override
     protected void initView(View v) {
         super.initView(v);
         setTitle("可折叠的列表（三级）");
+        // 动画导致列表展开和则跌抖动，这里取消动画
+        AnimUtils.setRecyclerAnimEnable(mRecyclerView, false);
     }
 
     protected void setAdapter() {
         // 注意：省份下的城市也是一个可折叠的列表，所以布局传的是一个列表
         provinceAdapter = new BaseExpandableAdapter<AreaItem, AreaItem>(R.layout.adapter_test_area_item, R.layout.adapter_test_area_list_item) {
+            @Override
+            protected void convert(@NonNull ExpandViewHolder holder, AreaItem dataGroup) {
+                super.convert(holder, dataGroup);
+                // 动画导致列表展开和则跌抖动不自然，这里取消动画
+                AnimUtils.setLayoutAnimateChangesEnable(((ViewGroup) holder.getRoot()), false);
+            }
+
             // 绑定省份
             @Override
             protected void bindGroup(@NonNull View viewGroup, AreaItem province, int positionGroup) {
@@ -39,6 +51,8 @@ public class TestExpand3ListActivity extends TestExpandListActivity {
             @Override
             protected void onBindChildren(RecyclerView recyclerChildren, AreaItem province, int positionProvince) {
                 //super.onBindChildren(recyclerChildren, province, positionGroup);
+                // 动画导致列表展开和则跌抖动，这里取消动画
+                AnimUtils.setRecyclerAnimEnable(recyclerChildren, false);
                 // 省份下的item也是一个列表，所以需要设置setHasFixedSize(false)
                 recyclerChildren.setHasFixedSize(false);
                 recyclerChildren.setNestedScrollingEnabled(false);
@@ -70,7 +84,8 @@ public class TestExpand3ListActivity extends TestExpandListActivity {
                     clickCity._isExpand = !clickCity._isExpand;
                     //cityListAdapter.notifyItemChanged(position);
                     // 三级展开对应的二级其实也变化了，所以这里notify父级
-                    provinceAdapter.notifyItemChanged(positionProvince);
+                    //provinceAdapter.notifyItemChanged(positionProvince);
+                    cityListAdapter.notifyItemExpandChanged(position);
                 });
 
                 // 设置地区点击事件
@@ -91,7 +106,8 @@ public class TestExpand3ListActivity extends TestExpandListActivity {
             // 点击省份展开下面的城市列表
             AreaItem province = provinceAdapter.getItem(position);
             province._isExpand = !province._isExpand;
-            provinceAdapter.notifyItemChanged(position);
+            //provinceAdapter.notifyItemChanged(position);
+            provinceAdapter.notifyItemExpandChanged(position);
         });
         mRecyclerView.setAdapter(provinceAdapter);
 
@@ -122,7 +138,6 @@ public class TestExpand3ListActivity extends TestExpandListActivity {
         chongqing_nanan.children.add(new AreaItem("四公里"));
         chongqing_nanan.children.add(new AreaItem("二塘路"));
         chongqing.children.add(chongqing_nanan);
-
 
 
         AreaItem sichuan = new AreaItem("四川省");

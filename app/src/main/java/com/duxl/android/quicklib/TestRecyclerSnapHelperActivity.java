@@ -55,7 +55,7 @@ public class TestRecyclerSnapHelperActivity extends BaseActivity {
 
         CenterLayoutManager centerLayoutManager = new CenterLayoutManager(mBinding.recyclerview1, CenterLayoutManager.HORIZONTAL, false);
         mBinding.recyclerview1.setLayoutManager(centerLayoutManager);
-        AnimUtils.clearRecyclerAnim(mBinding.recyclerview1);
+        AnimUtils.setRecyclerAnimEnable(mBinding.recyclerview1, false);
 
         adapter.setOnItemClickListener(new OnItemClickListener<View, Void>() {
             @Override
@@ -80,7 +80,7 @@ public class TestRecyclerSnapHelperActivity extends BaseActivity {
     private void test2() {
         Adapter adapter = new Adapter((int) (DisplayUtil.getScreenWidth(this) / 2.2), RecyclerView.LayoutParams.MATCH_PARENT);
         mBinding.recyclerview2.setAdapter(adapter);
-        AnimUtils.clearRecyclerAnim(mBinding.recyclerview2);
+        AnimUtils.setRecyclerAnimEnable(mBinding.recyclerview2, false);
 
         LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
         linearSnapHelper.attachToRecyclerView(mBinding.recyclerview2);
