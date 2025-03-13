@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:context=".SystemActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是返回值：" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_simple_activity_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="简单的ActivityResult返回值" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRequestPermission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="动态获取权限（单个）" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRequestPermissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="动态获取权限(多个)" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRecordVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="摄像" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTakePictureBitmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="拍照(直接返回bitmap)" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTakePicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="拍照(指定uri存储)" />
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#CCC" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="支持单个文件（返回单个）" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenDocument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="支持多种类型的文件（返回单个）" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenDocuments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="支持多种类型的文件（返回多个））" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

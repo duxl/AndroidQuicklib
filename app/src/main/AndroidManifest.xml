@@ -4,6 +4,7 @@
     package="com.duxl.android.quicklib">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
         android:name=".MyApp"
@@ -61,6 +62,18 @@
                 <action android:name="${pageAction}" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".TestRegisterForActivityResult"
+            android:label="TestRegisterForActivity">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ResultDataActivity"
+            android:label="RegisterForActivity" />
 
         <activity
             android:name=".TestHttpRequestActivity"
