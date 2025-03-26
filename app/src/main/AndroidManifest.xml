@@ -72,6 +72,14 @@
         </activity>
 
         <activity
+            android:name=".TestBackPressedDispatcherActivity"
+            android:label="测试返回分发器">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".ResultDataActivity"
             android:label="RegisterForActivity" />
 
