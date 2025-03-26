@@ -47,8 +47,6 @@ ext {
             "retrofit-converter-gson"             : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
             "retrofit-adapter-rxjava3"            : "com.squareup.retrofit2:adapter-rxjava3:${version["retrofitSdkVersion"]}",
             "retrofit-url-manager"                : "me.jessyan:retrofit-url-manager:1.4.0",
-            // RxPermissions
-            "rxpermissions"                       : "com.github.tbruyelle:rxpermissions:v0.12",
             // 图片选择框架
             //"matisse"                             : "com.zhihu.android:matisse:0.5.3-beta3",
             "matisse"                             : "com.github.duxl:Matisse:v0.5.3-beta4",
