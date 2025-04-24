@@ -73,7 +73,15 @@
 
         <activity
             android:name=".TestBackPressedDispatcherActivity"
-            android:label="测试返回分发器">
+            android:label="测试返回分发器/Activity+Fragment">
+            <intent-filter>
+                <action android:name="${pageAction}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".TestBackPressedDispatcher2Activity"
+            android:label="测试返回分发器/ViewPager">
             <intent-filter>
                 <action android:name="${pageAction}" />
             </intent-filter>

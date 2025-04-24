@@ -1,7 +1,6 @@
 package com.duxl.android.quicklib;
 
 import android.view.View;
-import android.widget.RadioGroup;
 
 import com.duxl.android.quicklib.databinding.FragmentTestBackPressedDispatcherBinding;
 import com.duxl.baselib.ui.activity.BaseActivity;
@@ -29,8 +28,16 @@ public class TestBackPressedDispatcherActivity extends BaseActivity {
     }
 
     @Override
+    protected void onClickActionBack(View v) {
+        //super.onClickActionBack(v);
+        // 点击左上角的返回按钮，直接关闭页面
+        finish();
+    }
+
+    @Override
     public void handleOnBackPressed() {
         ToastUtils.show("Activity拦截了返回");
+        //finish();
     }
 
     public static class TestBackPressedDispatcherFragment extends BaseFragment {
@@ -46,12 +53,14 @@ public class TestBackPressedDispatcherActivity extends BaseActivity {
         protected void initView(View v) {
             super.initView(v);
             binding = FragmentTestBackPressedDispatcherBinding.bind(v);
-            binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> mOnBackPressedCallback.setEnabled(checkedId == R.id.radio_back_enabled));
         }
 
         @Override
         protected boolean handleOnBackPressed() {
-            ToastUtils.show("Fragment拦截了返回");
+            if (binding.radioBackEnabled.isChecked()) {
+                ToastUtils.show("Fragment拦截了返回");
+                return true;
+            }
             return false;
         }
     }
