@@ -31,10 +31,10 @@ public class TestRecyclerViewActivity extends BaseActivity {
 
     private ActivityTestRecyclerviewBinding mBinding;
 
-    private BaseQuickAdapter<String, BaseViewHolder> mAdapter = new BaseQuickAdapter<String, BaseViewHolder>(android.R.layout.simple_list_item_1) {
+    private BaseQuickAdapter<String, BaseViewHolder> mAdapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.simple_list_item_1) {
         @Override
         protected void convert(@NotNull BaseViewHolder baseViewHolder, String s) {
-            baseViewHolder.setText(android.R.id.text1, "【" + getItemPosition(s) + "】" + s);
+            baseViewHolder.setText(R.id.tv_text, "【" + getItemPosition(s) + "】" + s);
         }
     };
 
