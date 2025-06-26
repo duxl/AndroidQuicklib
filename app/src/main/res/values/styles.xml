@@ -12,9 +12,12 @@
     <style name="style_simple_status_view_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginTop">15dp</item>
         <item name="android:textColor">#333333</item>
         <item name="android:textSize">30sp</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toBottomOf">@id/iv_status_view</item>
     </style>
 
     <!-- 配置全局的actionBar背景，其它配置见global_action_bar_config -->

@@ -41,12 +41,14 @@ public class TestAppStatusViewActivity extends BaseActivity {
             public void onEmptyClick() {
                 super.onEmptyClick();
                 getStatusView().showContent();
+                binding.simpleStatusView.showContent();
             }
 
             @Override
             public void onLoadingClick() {
                 super.onLoadingClick();
                 getStatusView().showContent();
+                binding.simpleStatusView.showContent();
             }
         });
 
