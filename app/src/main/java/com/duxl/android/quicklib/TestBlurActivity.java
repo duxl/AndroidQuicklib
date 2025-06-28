@@ -51,4 +51,19 @@ public class TestBlurActivity extends BaseActivity {
         }
         binding.ivImg.setImageBitmap(bitmap);
     }
+
+    /**
+     * 此方法需要在Android12及以上才可以用，直接对视图内容进行模糊处理
+     * 只需要对需要的View设置setRenderEffect方法即可，内容改变后系统自动处理模糊
+     * 此方法不支持SurfaceView、TextureView、GLSurfaceView
+     * @param radios
+     */
+    private void changeBlurV12(int radios) {
+        /*
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            RenderEffect blurEffect = RenderEffect.createBlurEffect(80f, 80f, Shader.TileMode.CLAMP)
+            binding.ivImg2.setRenderEffect(blurEffect)
+         }
+         */
+    }
 }

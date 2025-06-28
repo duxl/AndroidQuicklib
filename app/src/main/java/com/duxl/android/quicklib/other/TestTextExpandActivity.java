@@ -13,6 +13,7 @@ import com.duxl.android.quicklib.databinding.ActivityTestTextExpandBinding;
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.SpanUtils;
 import com.duxl.baselib.utils.TextExpandUtil;
+import com.duxl.baselib.utils.ToastUtils;
 
 /**
  * 测试文本折叠工具，例如文本超过3行就只显示3行，点击后展开更多
@@ -42,30 +43,61 @@ public class TestTextExpandActivity extends BaseActivity {
     private void test01() {
         binding.tvText01.setText(fullText);
         binding.btnExpand.setOnClickListener(btnExpand -> {
-            if (!isText1Expand) {
+            if (isText1Expand) {
                 binding.btnExpand.setText("展开");
-                TextExpandUtil.collapse(binding.tvText01, "", 3, expand -> isText1Expand = expand);
+                binding.tvText01.setMaxLines(3);
             } else {
                 binding.btnExpand.setText("折叠");
-                isText1Expand = false;
-                binding.tvText01.setText(fullText);
+                binding.tvText01.setMaxLines(Integer.MAX_VALUE);
+            }
+            isText1Expand = !isText1Expand;
+        });
+
+        TextExpandUtil.getEllipsisCount(binding.tvText01, (ellipsisCount)->{
+            // 文本未被省略按钮就不可用
+            binding.btnExpand.setEnabled(ellipsisCount > 0);
+            isText1Expand = ellipsisCount == 0;
+            ToastUtils.show("TextView01被省略的字符个数：" + ellipsisCount);
+            if(isText1Expand) {
+                binding.btnExpand.setText("折叠");
+            } else {
+                binding.btnExpand.setText("展开");
             }
         });
     }
 
     private void test02() {
-        binding.tvText02.setText(fullText);
         binding.tvText02.setMovementMethod(LinkMovementMethod.getInstance());
+        showTest02Less();
+    }
+
+    private void showTest02Less() {
+        binding.tvText02.setText(fullText);
         SpannableStringBuilder moreText = new SpanUtils()
                 .append(" 更多")
                 .setForegroundColor(Color.BLUE)
                 .setClickSpan(new ClickableSpan() {
                     @Override
                     public void onClick(@NonNull View widget) {
-                        binding.tvText02.setText(fullText);
+                        showTest02Full();
                     }
                 })
                 .create();
         TextExpandUtil.collapse(binding.tvText02, moreText, 3, expand -> isText2Expand = expand);
+    }
+
+    private void showTest02Full() {
+        SpannableStringBuilder lessText = new SpanUtils()
+                .append(fullText)
+                .append(" 折叠")
+                .setForegroundColor(Color.BLUE)
+                .setClickSpan(new ClickableSpan() {
+                    @Override
+                    public void onClick(@NonNull View widget) {
+                        showTest02Less();
+                    }
+                })
+                .create();
+        binding.tvText02.setText(lessText);
     }
 }

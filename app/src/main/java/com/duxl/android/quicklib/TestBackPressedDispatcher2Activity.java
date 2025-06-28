@@ -39,7 +39,7 @@ public class TestBackPressedDispatcher2Activity extends BaseActivity {
 
         fragments.add(new TestBackPressedDispatcherFragment(0, Color.YELLOW));
         fragments.add(new TestBackPressedDispatcherFragment(1, Color.RED));
-        fragments.add(new TestBackPressedDispatcherFragment(3, Color.GRAY));
+        fragments.add(new TestBackPressedDispatcherFragment(2, Color.GRAY));
 
         binding.viewPager.setAdapter(new FragmentStateAdapter(this) {
 

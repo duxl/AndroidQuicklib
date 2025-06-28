@@ -7,16 +7,37 @@
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
-        android:min="0"
-        android:max="25" />
+        android:max="25"
+        android:min="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="使用三方库实现" />
 
     <ImageView
         android:id="@+id/iv_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/city_cq" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="30dp"
+        android:text="Android12及以上版本实现" />
+
+    <ImageView
+        android:id="@+id/iv_img2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:adjustViewBounds="true"
         android:src="@drawable/city_cq" />
 

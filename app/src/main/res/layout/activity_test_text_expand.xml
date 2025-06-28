@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingMultiplier="1.2"
+        android:maxLines="3"
+        android:ellipsize="end"
         android:textSize="16sp"
         tools:text="The Android Studio build system is based on Gradle, and the Android Gradle plugin (AGP) adds several features that are specific to building Android apps. The following table lists which version of AGP is required for each version of Android Studio." />
 

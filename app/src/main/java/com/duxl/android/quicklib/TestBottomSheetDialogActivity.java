@@ -2,6 +2,8 @@ package com.duxl.android.quicklib;
 
 import android.view.View;
 
+import androidx.core.view.WindowInsetsCompat;
+
 import com.duxl.android.quicklib.databinding.ActivityTestBottomSheetDialogBinding;
 import com.duxl.baselib.ui.activity.BaseActivity;
 
