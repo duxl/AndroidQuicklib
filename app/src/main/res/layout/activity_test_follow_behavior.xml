@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestFollowBehaviorActivity">
+    tools:context=".TestFollowBehaviorActivity"
+    tools:ignore="HardcodedText,UsingOnClickInXml">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"
@@ -13,6 +14,7 @@
         android:layout_marginHorizontal="70dp"
         android:layout_marginTop="100dp"
         android:background="@android:color/transparent"
+        android:translationX="0dp"
         app:elevation="0dp">
 
         <TextView
@@ -55,11 +57,11 @@
     <com.duxl.baselib.widget.CoordinatorFollowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
         android:background="#80FF0000"
         app:follow_anchor="@id/appbar_layout"
         app:follow_center="true"
-        app:follow_gravity="AlignLeft">
+        app:follow_gravity="AlignLeft"
+        app:follow_offsetX="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,11 +94,11 @@
     <com.duxl.baselib.widget.CoordinatorFollowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="#80FF0000"
         app:follow_anchor="@id/appbar_layout"
         app:follow_center="true"
-        app:follow_gravity="AlignTop">
+        app:follow_gravity="AlignTop"
+        app:follow_offsetY="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -129,11 +131,11 @@
     <com.duxl.baselib.widget.CoordinatorFollowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
         android:background="#80FF0000"
         app:follow_anchor="@id/appbar_layout"
         app:follow_center="true"
-        app:follow_gravity="AlignRight">
+        app:follow_gravity="AlignRight"
+        app:follow_offsetX="-4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -149,11 +151,11 @@
         android:id="@+id/cfl_AlignBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:background="#80FF0000"
         app:follow_anchor="@id/appbar_layout"
         app:follow_center="true"
-        app:follow_gravity="AlignBottom">
+        app:follow_gravity="AlignBottom"
+        app:follow_offsetY="-4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -185,11 +187,11 @@
     <com.duxl.baselib.widget.CoordinatorFollowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="#80FFF000"
         app:follow_anchor="@id/cfl_AlignBottom"
         app:follow_center="true"
-        app:follow_gravity="Bottom">
+        app:follow_gravity="Bottom"
+        app:follow_offsetY="8dp">
 
         <TextView
             android:layout_width="wrap_content"
