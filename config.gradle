@@ -9,17 +9,17 @@ ext {
     ]
 
     version = [
-            appcompat         : "1.3.0",
+            appcompat         : "1.3.1",
             material          : "1.4.0",
             swiperefreshlayout: "1.1.0",
             recyclerview      : "1.2.1",
             flexbox           : "3.0.0",
-            constraintlayout  : "2.0.0-rc1",
-            smartrefresh      : "2.0.1",
+            constraintlayout  : "2.1.4",
+            smartrefresh      : "3.0.0-alpha",
             rxjava            : "3.1.10",
             rxandroid         : "3.0.0",
             rxlifecycle       : "4.0.2",
-            retrofitSdkVersion: "2.11.0",
+            retrofitSdkVersion: "3.0.0",
             okhttp            : "4.12.0",
             glide             : "4.16.0",
     ]
@@ -34,8 +34,8 @@ ext {
             "flexbox"                             : "com.google.android.flexbox:flexbox:${version["flexbox"]}",
             "baseviewadapter"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4",
             // 下拉刷新
-            "smart-refreshrefresh-kernel"         : "com.scwang.smart:refresh-layout-kernel:${version["smartrefresh"]}", // 核心必须依赖
-            "smart-refreshrefresh-header-classics": "com.scwang.smart:refresh-header-classics:${version["smartrefresh"]}", // 经典刷新头
+            "smart-refreshrefresh-kernel"         : "io.github.scwang90:refresh-layout-kernel:${version["smartrefresh"]}", // 核心必须依赖
+            "smart-refreshrefresh-header-classics": "io.github.scwang90:refresh-header-classics:${version["smartrefresh"]}", // 经典刷新头
             // rx
             "rxjava"                              : "io.reactivex.rxjava3:rxjava:${version["rxjava"]}",
             "rxandroid"                           : "io.reactivex.rxjava3:rxandroid:${version["rxandroid"]}",
