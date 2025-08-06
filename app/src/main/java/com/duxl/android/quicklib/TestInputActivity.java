@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.DisplayUtil;
+import com.duxl.baselib.utils.ViewClickDelayUtil;
 import com.duxl.baselib.utils.WindowSoftInputCompat;
 import com.duxl.baselib.widget.DataRunnable;
 
@@ -36,11 +37,12 @@ public class TestInputActivity extends BaseActivity {
      */
     private void handKeyboardVisibleChanged() {
         View vTop = findViewById(R.id.tv_top);
-        vTop.setOnClickListener(v -> {
+        ViewClickDelayUtil.setListener(vTop, v->{
             Log.i("duxl.log", "软键盘是否显示方法1: " + DisplayUtil.isKeyboardShow(TestInputActivity.this));
             Log.i("duxl.log", "软键盘是否显示方法2: " + DisplayUtil.isKeyboardAcceptingText(TestInputActivity.this));
             Log.i("duxl.log", "软键盘是否作用与第一个输入框: " + DisplayUtil.isKeyboardShow(TestInputActivity.this, findViewById(R.id.edit01)));
         });
+
         DisplayUtil.observerKeyboardVisibleChanged(vTop, isVisible -> Log.i("duxl.log", "监听到软键盘显示或隐藏: isVisible=" + isVisible));
     }
 }
