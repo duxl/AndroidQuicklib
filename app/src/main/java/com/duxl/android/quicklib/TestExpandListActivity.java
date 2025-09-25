@@ -77,7 +77,7 @@ public class TestExpandListActivity extends BaseActivity {
                 dayCount = 30;
             }
             this.days = new ArrayList();
-            for (int i = 1; i <= dayCount/10; i++) {
+            for (int i = 1; i <= dayCount; i++) {
                 days.add(i + "日");
             }
         }
