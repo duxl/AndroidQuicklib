@@ -2,6 +2,10 @@ package com.duxl.android.quicklib;
 
 import android.graphics.Color;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +25,14 @@ import java.util.List;
  */
 public class TestExpandListActivity extends BaseActivity {
 
+    protected LinearLayout llInput;
+    protected EditText etMonth;
+    protected EditText etDay;
+    protected CheckBox chkAnim;
+    protected Button btnAction;
+
     protected RecyclerView mRecyclerView;
+    private MonthAdapter adapter;
 
     @Override
     protected int getLayoutResId() {
@@ -32,9 +43,27 @@ public class TestExpandListActivity extends BaseActivity {
     protected void initView(View v) {
         super.initView(v);
         setTitle("可折叠的列表（两级）");
+
+        llInput = v.findViewById(R.id.ll_input);
+        etMonth = v.findViewById(R.id.et_month);
+        etDay = v.findViewById(R.id.et_day);
+        chkAnim = v.findViewById(R.id.chk_anim);
+        btnAction = v.findViewById(R.id.btn_action);
         mRecyclerView = v.findViewById(R.id.recyclerview);
 
         setAdapter();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        llInput.setVisibility(View.VISIBLE);
+        btnAction.setOnClickListener(v -> {
+            int month = Integer.parseInt(etMonth.getText().toString());
+            int day = Integer.parseInt(etDay.getText().toString());
+            boolean anim = chkAnim.isChecked();
+            adapter.scrollToChildItem(month - 1, day - 1, 0, anim);
+        });
     }
 
     protected void setAdapter() {
@@ -42,7 +71,7 @@ public class TestExpandListActivity extends BaseActivity {
         for (int i = 1; i <= 12; i++) {
             list.add(new MonthItem(i));
         }
-        MonthAdapter adapter = new MonthAdapter();
+        adapter = new MonthAdapter();
         mRecyclerView.setAdapter(adapter);
         adapter.setNewInstance(list);
         // 点击月展开和折叠操作
