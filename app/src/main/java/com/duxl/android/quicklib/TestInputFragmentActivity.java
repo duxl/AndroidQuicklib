@@ -43,7 +43,7 @@ public class TestInputFragmentActivity extends TestInputActivity {
 
         @Override
         protected void initView(View v) {
-            WindowSoftInputCompat.assist(getActivity());
+            WindowSoftInputCompat.assistV2(getActivity());
             ((TextView) v.findViewById(R.id.tv_top)).setText(msg);
         }
     }

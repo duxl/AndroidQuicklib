@@ -8,7 +8,6 @@ import com.duxl.baselib.ui.activity.BaseActivity;
 import com.duxl.baselib.utils.DisplayUtil;
 import com.duxl.baselib.utils.ViewClickDelayUtil;
 import com.duxl.baselib.utils.WindowSoftInputCompat;
-import com.duxl.baselib.widget.DataRunnable;
 
 /**
  * 键盘遮挡输入框问题
@@ -27,7 +26,32 @@ public class TestInputActivity extends BaseActivity {
     @Override
     protected void initView(View v) {
         ((TextView) v.findViewById(R.id.tv_top)).setText(msg);
-        WindowSoftInputCompat.assist(this);
+        WindowSoftInputCompat.assistV2(this, new WindowSoftInputCompat.OnHeightChangeListener() {
+            @Override
+            public void onHeightChanged(int softHeight) {
+                Log.i("duxl.log", "软键盘的高度：" + softHeight);
+            }
+
+            @Override
+            public void onStart(boolean targetVisible, int fullHeight) {
+                super.onStart(targetVisible, fullHeight);
+                if (targetVisible) {
+                    Log.i("duxl.log", "显示软键盘开始");
+                } else {
+                    Log.i("duxl.log", "隐藏软键盘开始");
+                }
+            }
+
+            @Override
+            public void onEnd(boolean isVisible) {
+                super.onEnd(isVisible);
+                if(isVisible) {
+                    Log.i("duxl.log", "显示软键盘结束");
+                } else {
+                    Log.i("duxl.log", "隐藏软键盘结束");
+                }
+            }
+        });
 
         handKeyboardVisibleChanged();
     }
@@ -37,7 +61,7 @@ public class TestInputActivity extends BaseActivity {
      */
     private void handKeyboardVisibleChanged() {
         View vTop = findViewById(R.id.tv_top);
-        ViewClickDelayUtil.setListener(vTop, v->{
+        ViewClickDelayUtil.setListener(vTop, v -> {
             Log.i("duxl.log", "软键盘是否显示方法1: " + DisplayUtil.isKeyboardShow(TestInputActivity.this));
             Log.i("duxl.log", "软键盘是否显示方法2: " + DisplayUtil.isKeyboardAcceptingText(TestInputActivity.this));
             Log.i("duxl.log", "软键盘是否作用与第一个输入框: " + DisplayUtil.isKeyboardShow(TestInputActivity.this, findViewById(R.id.edit01)));
