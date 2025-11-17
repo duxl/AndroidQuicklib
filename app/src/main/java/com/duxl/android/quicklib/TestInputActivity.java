@@ -45,7 +45,7 @@ public class TestInputActivity extends BaseActivity {
             @Override
             public void onEnd(boolean isVisible) {
                 super.onEnd(isVisible);
-                if(isVisible) {
+                if (isVisible) {
                     Log.i("duxl.log", "显示软键盘结束");
                 } else {
                     Log.i("duxl.log", "隐藏软键盘结束");
