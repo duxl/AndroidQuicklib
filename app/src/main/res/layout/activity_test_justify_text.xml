@@ -133,4 +133,18 @@
         app:jtv_enableJustify="true"
         app:jtv_placeWidthText="垂直居中效果" />
 
+    <com.duxl.baselib.widget.JustifyTextView
+        android:id="@+id/justifyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#CCC"
+        android:text="*姓名:"
+        android:textColor="#00F"
+        android:textSize="18sp"
+        app:jtv_disableFirstChar="true"
+        app:jtv_disableLastChar="true"
+        app:jtv_enableJustify="true"
+        app:jtv_placeWidthText="四个汉字" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
